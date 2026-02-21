@@ -88,3 +88,5 @@ wandb/
 # .gitkeep 파일은 유지
 # ============================
 !**/.gitkeep
+data/
+models/
