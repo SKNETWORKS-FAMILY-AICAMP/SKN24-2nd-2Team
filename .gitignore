@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+.venv/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Data (용량이 커서 깃허브에 직접 올리면 안 됨)
+*.csv
+*.xlsx
+*.zip
+*.gz
+data/raw/
+data/processed/
+
+# ML Models
+*.pkl
+*.h5
+*.joblib
+models/*.pkl
+
+# OS & Editors
+.DS_Store
+.vscode/
+.idea/
+.env
