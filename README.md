@@ -51,3 +51,38 @@
 ## 8. 한 줄 회고
 
 ... (팀원별 작성)
+
+---
+
+## 📁 프로젝트 폴더 구조
+---
+
+📁 SKN24-2ND-2Team/
+├── 📁 data/
+│   ├── raw/              ← Kaggle 원본 데이터 CSV (gitignore 처리)
+│   └── processed/        ← 전처리 완료데이터 CSV (gitignore 처리)
+│
+├── 📁 docs/
+│   ├── 기획서.md          ← 프로젝트 기획 문서
+│   ├── EDA_결과.md        ← 데이터 분석 정리
+│   └── 회의록/            ← 팀 회의 기록
+│
+├── 📁 models/
+│   ├── saved/            ← 학습된 모델 파일 (gitignore 처리)
+│   └── results/          ← 모델별 성능 비교 결과 CSV나 이미지
+│
+├── 📁 notebooks/
+│   ├── 01_EDA.ipynb
+│   ├── 02_preprocessing.ipynb
+│   ├── 03_ML_models.ipynb
+│   └── 04_DL_models.ipynb
+│
+├── 📁 src/
+│   ├── preprocess.py     ← 전처리 함수 모듈
+│   ├── train.py          ← 학습 실행 스크립트
+│   ├── evaluate.py       ← 평가 지표 함수
+│   └── predict.py        ← 예측 실행 스크립트
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
