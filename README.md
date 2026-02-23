@@ -72,7 +72,7 @@
 | sex          | ✅        | 성별            | object     |
 | orientation  | ✅        | 성적 지향       | object     |
 | body_type    | ✅        | 체형            | object     |
-| diet         | ❌        | 식단 성향       | object     |
+| diet         | ✅        | 식단 성향       | object     |
 | drinks       | ✅        | 음주 빈도       | object     |
 | drugs        | ✅        | 약물 사용       | object     |
 | education    | ✅        | 학력 상태       | object     |
@@ -88,16 +88,16 @@
 | sign         | ❌        | 별자리 및 태도  | object     |
 | smokes       | ✅        | 흡연 여부       | object     |
 | speaks       | ❌        | 사용 언어       | object     |
-| essay0       | ❌        | 자기소개        | object     |
-| essay1       | ❌        | 인생 방향       | object     |
-| essay2       | ❌        | 잘하는 것       | object     |
-| essay3       | ❌        | 첫인상          | object     |
-| essay4       | ❌        | 취향            | object     |
-| essay5       | ❌        | 필수 요소       | object     |
-| essay6       | ❌        | 많이 생각하는 것| object     |
-| essay7       | ❌        | 금요일 밤       | object     |
-| essay8       | ❌        | 가장 사적인 고백| object     |
-| essay9       | ❌        | 메시지 조건     | object     |
+| essay0       | ✅        | 자기소개        | object     |
+| essay1       | ✅        | 인생 방향       | object     |
+| essay2       | ✅        | 잘하는 것       | object     |
+| essay3       | ✅        | 첫인상          | object     |
+| essay4       | ✅        | 취향            | object     |
+| essay5       | ✅        | 필수 요소       | object     |
+| essay6       | ✅        | 많이 생각하는 것| object     |
+| essay7       | ✅        | 금요일 밤       | object     |
+| essay8       | ✅        | 가장 사적인 고백| object     |
+| essay9       | ✅        | 메시지 조건     | object     |
 
 ## 3. 기술 스택
 
@@ -130,47 +130,60 @@ orientation(성적지향) :  이성애자, 동성애자
 
 body_type(체형) : 마름, 보통, 건강, 통통
 
-drinks(음주 빈도) : 안마신다, 적당히 마신다, 많이마신다
-
-drugs(약물 사용) : 안한다, 가끔한다, 자주한다
-
-education(학력) : 석사이상, 학사졸업, 학사재학, 고등이하, 그외
+education(학력) : 석사이상(4), 학사졸업(3), 학사재학(2), 고등이하(1), 그외(0)
 
 last_online(마지막 접속) : 시간별 데이터를 일별 데이터 분류 -> 이탈율 계산 
 
-religion(종교) : 종교가 있다, 없다
+religion(종교) : 종교가 있다(1), 없다(0)
 
-smokes(흡연 여부) : 흡연을 안한다, 조금한다, 자주 한다
+diet(식단) : 유연함(0), 중간(1), 엄격함(5)
 
-job(직업) : 기술측면, 비지니스, 경영, 금융 측면, 미디어 측면, 
-공공 교육 의료 측면, 서비스 측면, 그 이외
+drinks(음주 빈도) : 안마신다(0), 적당히 마신다(1), 많이마신다(5)
+
+drugs(약물 사용) : 안한다(0), 가끔한다(1), 자주한다(5)
+
+smokes(흡연 여부) : 흡연을 안한다(0), 조금한다(1), 자주 한다(5)
+
+job(직업) : 연봉 기준으로 0~4로 분류
+
+response rate(답변성실도) : 전체의 빈칸이 적은 정도
+
+total_essay_len(에세이 총 글자) : 에세이의 총 글자 수 합산
+
+essay_answered_count(작성한 에세이 질문 개수) : 작성한 essay 질문 개수
+
+niche_score(매칭 시장 내 배타성 지수) : smokes + drinks + drugs + diet 매칭 마찰력 누적
+-> 음주 기준 0과 1의 지표는 성향차이라 판단 하지만 2의 지표는 성향차이가 아닐것이라 판단
+
+churn(이탈) : 이탈(1), 잔류(0)
+
 
 ### 최종 데이터 구조
 | 컬럼명                                              | 설명                         | 데이터타입 |
 |-----------------------------------------------------|------------------------------|------------|
 | sex                                                 | 성별                         | int8       |
-| orientation                                         | 성적지향 여부                 | int8       |
-| drugs                                               | 약물 사용 여부                | int64      |
+| orientation                                         | 성적지향 여부                | int8       |
+| diet                                                | 식단                         | int64      |
+| drugs                                               | 약물 사용 여부               | int64      |
 | education                                           | 학력 수준                    | float64    |
-| height                                              | 키 (inch)                   | float64   |
+| height                                              | 키 (inch)                    | float64    |
 | body_type_average                                   | 평균 체형 여부               | bool       |
 | body_type_curvy                                     | 통통한 체형 여부             | bool       |
 | body_type_fit                                       | 건강/탄탄 체형 여부          | bool       |
 | body_type_slim                                      | 마른 체형 여부               | bool       |
-| smokes_smoke                                        | 흡연자 여부                  | bool       |
-| smokes_sometime_smoke                               | 가끔 흡연 여부               | bool       |
+| smokes                                              | 흡연자 여부                  | bool       |
 | drinks_heavy                                        | 과음 여부                    | bool       |
 | drinks_moderate                                     | 적당한 음주 여부             | bool       |
 | drinks_no_drinks                                    | 비음주 여부                  | bool       |
-| job_encoding_Creative / Media / Entertainment       | 직업군 (크리에이티브/미디어)  | bool       |
-| job_encoding_No jobs/No reply                       | 직업 없음/무응답             | bool       |
-| job_encoding_Public / Education / Healthcare / Legal| 공공/교육/의료/법률 직군     | bool       |
-| job_encoding_STEM/Tech                              | STEM/기술 직군               | bool       |
-| job_encoding_Service / Manual / Admin / Transport   | 서비스/사무/운송 직군         | bool       |
-| religion_no_religion                                | 무종교 여부                  | bool       |
-| religion_religion                                   | 종교 있음 여부               | bool       |
+| job_score                                           | 연봉기준  0~4                | float64    |
+| religion_religion                                   | 종교 여부                    | bool       |
 | status_encoding                                     | 연애 상태 인코딩값           | int64      |
 | age_group                                           | 연령대 그룹                  | int64      |
+| response rate                                       | 답변 성실도                  | float64    |
+| total_essay_len                                     | 에세이 전체 글자 수 합산     | int64      |
+| essay_answered_count                                | 작성한 에세이 질문 개수      | int64      |
+| niche_score                                         | 매칭 시장 내 배타성지수      | float64    |
+| churn                                               | 고객 이탈                    | int64     |
 
 
 
