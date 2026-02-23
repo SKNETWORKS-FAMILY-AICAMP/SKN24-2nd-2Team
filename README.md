@@ -35,6 +35,8 @@
 
 
 ## 4. WBS (Work Breakdown Structure)
+<img width="891" height="347" alt="WBS" src="https://github.com/user-attachments/assets/e3fd665d-cb0a-4b51-8462-b0a2e104d9a1" />
+
 
 
 ## 5. 데이터 전처리 결과서 (EDA)
@@ -44,7 +46,7 @@
 ## 6. 인공지능 학습 결과서
 | Model | Accuracy | F1-Score | 비고 |
 |-------|----------|----------|------|
-
+|Logistic Regression|0.5876|0.5720|SMOTE 적용|
 
 ## 7. 수행결과 (시연)
 
