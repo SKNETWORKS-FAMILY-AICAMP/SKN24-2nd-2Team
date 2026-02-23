@@ -148,7 +148,7 @@
 
 ### EDA
 <div>
-  <img src="./data/img/heatmap.png" width="40%">
+  <img src="./data/img/heatmap.png" width="50%">
 </div>
 
 ### 최종 데이터 구조
@@ -182,7 +182,7 @@
 ### 모델 성능 평가 비교
 
 <div>
-  <img src="./data/img/before_model.png" width="30%">
+  <img src="./data/img/before_model.png" width="50%">
 </div>
 
 | 모델명        | Accuracy | Recall | F1-Score |
@@ -196,7 +196,7 @@
 #### 교차검증
 
 <div>
-  <img src="./data/img/after_model.png" width="30%">
+  <img src="./data/img/after_model.png" width="50%">
 </div>
 
 | 모델명        | Accuracy | Recall | F1-Score |
