@@ -43,7 +43,7 @@ models/saved/
 *.pt
 *.pth
 *.onnx
-*.joblib
+# *.joblib
 *.model
 
 # ============================
