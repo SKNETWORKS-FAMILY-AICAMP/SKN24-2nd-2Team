@@ -219,9 +219,11 @@ Version      Git / GitHub
 
 ### 결측치 이상치
 <div>
+  <img src="./data/img/descrivbe.png" width="30%"><br>
   <img src="./data/img/outlier_age.png" width="40%"> <br>
   <img src="./data/img/outlier_height.png" width="40%"> <br>
   <img src="./data/img/object_col.png" width="40%">
+  
 </div>
 
 
