@@ -54,7 +54,7 @@
 ### 데이터셋 기본 정보
 
 <div>
-  <img src="./data/img/df_info.png" width="20%">
+  <img src="./data/img/df_info.png" width="40%">
 </div>
 행 개수: 59,946개
 
