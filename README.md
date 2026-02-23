@@ -17,13 +17,6 @@
     <col style="width: 20%;">
   </colgroup>
   <tbody>
-    <tr>
-      <td style="text-align: center;"><img src="" alt="고아라"></td>
-      <td style="text-align: center;"><img src="" alt="권민제"></td>
-      <td style="text-align: center;"><img src="" alt="김규호"></td>
-      <td style="text-align: center;"><img src="" alt="김정현"></td>
-      <td style="text-align: center;"><img src="" alt="최현진"></td>
-    </tr>
     <tr style="font-weight: bold;">
       <td style="text-align: center;">고아라</td>
       <td style="text-align: center;">권민제</td>
