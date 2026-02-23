@@ -172,7 +172,7 @@
 > ⚠️ **데이터 한계**  
 > - 북캘리포니아 한정 해외 데이터 → 국내 서비스에 직접 적용 어려움  
 > - 행동 데이터 없음 (접속 빈도, 클릭 등) → 이탈 원인과 직접 인과관계 약한 피처들  
-> - `last_online` 기반 churn 정의의 모호함 → "짝을 찾아 떠난 이탈"과 "무관심으로 떠난 이탈"을 구분 불가  
+> - `last_online` 기반 churn 정의의 모호함 → "짝을 찾아 떠난 이탈"과 "무관심으로 떠난 이탈"을 구분 불가 (기준: 180일 미접속)
 
 | 인사이트 | 내용 | 실제 근거 |
 |---|---|---|
@@ -214,16 +214,16 @@
 | drinks       | ✅        | 음주 빈도       | object     |
 | drugs        | ✅        | 약물 사용       | object     |
 | education    | ✅        | 학력 상태       | object     |
-| ethnicity    | ❌        | 인종            | object     |
+| ethnicity    | ✅        | 인종            | object     |
 | height       | ✅        | 키 (inch)       | float64    |
 | income       | ❌        | 연소득 (USD)    | int64      |
 | job          | ✅        | 직업            | object     |
 | last_online  | ✅        | 마지막 접속     | object     |
-| location     | ❌        | 거주 지역       | object     |
+| location     | ✅        | 거주 지역       | object     |
 | offspring    | ❌        | 자녀 여부/계획  | object     |
 | pets         | ✅        | 반려동물        | object     |
 | religion     | ✅        | 종교 및 태도    | object     |
-| sign         | ❌        | 별자리 및 태도  | object     |
+| sign         | ✅        | 별자리 및 태도  | object     |
 | smokes       | ✅        | 흡연 여부       | object     |
 | speaks       | ❌        | 사용 언어       | object     |
 | essay0       | ✅        | 자기소개        | object     |
@@ -282,8 +282,8 @@ Version      Git / GitHub
 ### 타겟 변수 생성 (churn 정의)
 ```
 last_online 컬럼 기준:
-- 마지막 접속일로부터 365일(1년) 이상 경과 → 이탈(1)
-- 365일 미만 → 잔류(0)
+- 기준일(데이터 내 가장 최근 접속일: 2012-07-01)로부터 180일 이상 미접속 → 이탈(1)
+- 180일 미만 → 잔류(0)
 ```
 
 ![이탈 vs 잔류 인원 수](./assets/prep_churn_bar.png)
@@ -317,17 +317,21 @@ last_online 컬럼 기준:
 | 컬럼 | 인코딩 방식 | 변환 기준 |
 |---|---|---|
 | `age` | 연령대 그룹화 | 10대별 구간 분류 → `age_group` |
-| `status` | Label Encoding | 연애 중(1) / 안 함(0) |
-| `orientation` | Label Encoding | 이성애자 / 동성애자 |
-| `body_type` | One-Hot Encoding | 마름 / 보통 / 건강 / 통통 4개 컬럼 |
-| `education` | Ordinal Encoding | 석사이상(4) / 학사졸업(3) / 학사재학(2) / 고등이하(1) / 그외(0) |
-| `religion` | Binary Encoding | 종교 있음(1) / 없음(0) |
-| `diet` | Ordinal Encoding | 유연함(0) / 중간(1) / 엄격함(5) |
-| `drinks` | One-Hot Encoding | no_drinks / moderate / heavy 3개 컬럼 |
-| `drugs` | Ordinal Encoding | 안 함(0) / 가끔(1) / 자주(5) |
-| `smokes` | Binary Encoding | 안 함(0) / 조금(1) / 자주(5) |
-| `job` | Ordinal Encoding | 연봉 기준 0~4 분류 |
-| `last_online` | 파생 변수 → churn | 일별 데이터로 변환 후 이탈 기준 적용 |
+| `status` | Binary Encoding | single(1) / 나머지(0) → `status_encoding` |
+| `orientation` | Label Encoding | straight(0) / gay·bisexual(1) |
+| `body_type` | One-Hot Encoding | slim / average / fit / curvy → 4개 컬럼 |
+| `education` | One-Hot Encoding | univ_grad / univ_ing / high_school / other → 4개 컬럼 |
+| `religion` | One-Hot Encoding | religion(1) / no_religion(0) → 2개 컬럼 |
+| `diet` | Binary Encoding | 채식·비건(1) / 비채식(0) → `diet_encoding` |
+| `drinks` | One-Hot Encoding | no_drinks / moderate / heavy → 3개 컬럼 |
+| `drugs` | Ordinal Encoding | never(2) / sometimes(1) / often(0) |
+| `smokes` | One-Hot Encoding | no_smoke / smoke / sometime_smoke → 2개 컬럼 (drop_first=True) |
+| `job` | Ordinal Encoding | 직군별 연봉 기준 0~5 분류 → `job_encoding` |
+| `sign` | Binary Encoding | 별자리 믿음 여부 (1/0) → `sign_belief_encoding` |
+| `ethnicity` | One-Hot Encoding | white / asian / black / hispanic / other / mixed → 6개 컬럼 |
+| `pets` | Binary Encoding | dogs_encoding (강아지 선호 여부), cats_encoding (고양이 선호 여부) |
+| `location` | One-Hot Encoding | sf / east_bay / south_bay / north_bay / outside → 5개 컬럼 |
+| `last_online` | 파생 변수 → churn | 180일 이상 미접속 → 이탈(1) |
 
 ---
 
@@ -335,11 +339,15 @@ last_online 컬럼 기준:
 
 | 파생 변수 | 설명 | 생성 방식 |
 |---|---|---|
-| `response_rate` | 답변 성실도 | 전체 컬럼 중 빈칸이 적은 정도 |
-| `total_essay_len` | 에세이 총 글자 수 | essay0~9 글자 수 합산 |
-| `essay_answered_count` | 작성한 에세이 개수 | 작성된 essay 질문 개수 카운트 |
-| `niche_score` | 매칭 시장 내 배타성 지수 | `smokes + drinks + drugs + diet` 누적합 — 음주 0↔1은 성향 차이, 2는 매칭 마찰로 판단 |
-| `churn` | 이탈 여부 (타겟) | last_online 기준 365일 이상 미접속 → 이탈(1) |
+| `age_group` | 연령대 그룹 | age를 10단위로 구간화 |
+| `sign_belief_encoding` | 별자리 믿음 여부 | 믿음(1) / 안 믿음(0) |
+| `job_encoding` | 직군 연봉 등급 | IT/과학, 비즈니스, 예술, 전문직 등 0~5 분류 |
+| `status_encoding` | 연애 상태 | single(1) / 나머지(0) |
+| `diet_encoding` | 식단 성향 | 채식·비건(1) / 비채식(0) |
+| `dogs_encoding` | 강아지 선호 여부 | 선호(1) / 비선호(0) |
+| `cats_encoding` | 고양이 선호 여부 | 선호(1) / 비선호(0) |
+| `location_group` | 거주 지역 그룹 | sf / east_bay / south_bay / north_bay / outside |
+| `churn` | 이탈 여부 (타겟) | last_online 기준 **180일** 이상 미접속 → 이탈(1) |
 
 ---
 
@@ -375,26 +383,41 @@ Train: 47,947명  Test: 11,987명 (stratify=y)
 |---|---|---|
 | sex | 성별 | int8 |
 | orientation | 성적지향 여부 | int8 |
-| diet | 식단 | int64 |
-| drugs | 약물 사용 여부 | int64 |
-| education | 학력 수준 | float64 |
-| height | 키 (inch) | float64 |
-| body_type_average | 평균 체형 여부 | bool |
+| drugs | 약물 사용 (never=2 / sometimes=1 / often=0) | int8 |
+| height | 키 (inch, 표준화) | float64 |
+| sign_belief_encoding | 별자리 믿음 여부 | int64 |
+| age_group | 연령대 그룹 (표준화) | float64 |
+| education_high_school | 고등학교 이하 여부 | bool |
+| education_other | 기타 학력 여부 | bool |
+| education_univ_grad | 대학교 졸업 여부 | bool |
+| education_univ_ing | 대학교 재학 여부 | bool |
+| body_type_average | 보통 체형 여부 | bool |
 | body_type_curvy | 통통한 체형 여부 | bool |
 | body_type_fit | 건강/탄탄 체형 여부 | bool |
 | body_type_slim | 마른 체형 여부 | bool |
-| smokes | 흡연자 여부 | bool |
+| smokes_smoke | 흡연자 여부 | bool |
+| smokes_sometime_smoke | 가끔 흡연 여부 | bool |
 | drinks_heavy | 과음 여부 | bool |
 | drinks_moderate | 적당한 음주 여부 | bool |
 | drinks_no_drinks | 비음주 여부 | bool |
-| job_score | 연봉기준 0~4 | float64 |
+| religion_no_religion | 무교 여부 | bool |
 | religion_religion | 종교 여부 | bool |
-| status_encoding | 연애 상태 인코딩값 | int64 |
-| age_group | 연령대 그룹 | int64 |
-| response_rate | 답변 성실도 | float64 |
-| total_essay_len | 에세이 전체 글자 수 합산 | int64 |
-| essay_answered_count | 작성한 에세이 질문 개수 | int64 |
-| niche_score | 매칭 시장 내 배타성 지수 | float64 |
+| job_encoding | 직군 연봉 등급 0~5 | int64 |
+| status_encoding | 연애 상태 (single=1) | int64 |
+| diet_encoding | 식단 (채식=1 / 비채식=0) | int64 |
+| ethnicity_asian | 아시아계 여부 | bool |
+| ethnicity_black | 흑인 여부 | bool |
+| ethnicity_hispanic / latin | 히스패닉/라틴계 여부 | bool |
+| ethnicity_mixed | 혼혈 여부 | bool |
+| ethnicity_other | 기타 인종 여부 | bool |
+| ethnicity_white | 백인 여부 | bool |
+| dogs_encoding | 강아지 선호 여부 | int64 |
+| cats_encoding | 고양이 선호 여부 | int64 |
+| location_group_east_bay | East Bay 거주 여부 | bool |
+| location_group_north_bay | North Bay 거주 여부 | bool |
+| location_group_outside | 외곽 거주 여부 | bool |
+| location_group_sf | SF 거주 여부 | bool |
+| location_group_south_bay | South Bay 거주 여부 | bool |
 | churn | 고객 이탈 (타겟) | int64 |
 
 ---
@@ -498,9 +521,11 @@ EarlyStopping: patience=20
 
 | 모델 | Recall | ROC-AUC | F1 | Precision |
 |---|---|---|---|---|
-| ANN Advanced (thr=0.3) | **0.927** | 0.621 | 0.157 | 0.086 |
+| ANN Advanced (thr=0.3) | **0.927** | 0.621 | 0.157 | **0.086** |
 | ANN Advanced (thr=0.5) | 0.544 | **0.621** | **0.192** | 0.117 |
 | ANN Basic (thr=0.5) | 0.483 | 0.588 | 0.170 | 0.103 |
+
+> 💡 **patience를 늘려도 ANN Basic Epoch 17, ANN Advanced Epoch 23에서 조기 종료** → 데이터 자체의 한계로 추가 튜닝 효과 없음
 
 ![DL ANN Basic 학습 곡선](./assets/dl_basic_train.png)
 
@@ -618,7 +643,7 @@ ANN Advanced         ROC-AUC 0.621   ← 전체 최고
 | 매칭 성공률, 대화 지속 시간 | 높음 | ❌ |
 | 나이, 직업, 종교, 라이프스타일 | 낮음~중간 | ✅ (우리가 가진 것) |
 
-또한 이 데이터의 이탈 정의(`last_online` 기준 365일 미접속)는 **"짝을 찾아 행복하게 떠난 사람"과 "관심이 없어서 떠난 사람"을 구분할 수 없어**, 예측 자체가 구조적으로 어려운 문제임.
+또한 이 데이터의 이탈 정의(`last_online` 기준 **180일 미접속**)는 **"짝을 찾아 행복하게 떠난 사람"과 "관심이 없어서 떠난 사람"을 구분할 수 없어**, 예측 자체가 구조적으로 어려운 문제임.
 
 > 💡 **배운 점:** ROC-AUC 0.62 수렴은 실패가 아니다. "이 데이터로 뽑을 수 있는 최대치에 도달했다"는 것을 여러 모델로 교차 검증한 결과다.
 
@@ -724,4 +749,5 @@ ANN Advanced         ROC-AUC 0.621   ← 전체 최고
 
 
 ```
+
 
