@@ -345,7 +345,7 @@ Version      Git / GitHub
 | RandomForest | 0.66     | 0.54   | 0.51     |
 | XGBoost      | 0.58     | 0.75   | 0.55     |
 | Light GBM    | 0.60     | 0.72   | 0.54     |
-| CatBoost     | 0.55     | 0.60   | 0.45     |
+| CatBoost     | 0.55     | 0.70   | 0.45     |
 
 **Accuracy(정확도)**와, **F1-Score**가 고루 분포되어있는가운데 
 **Recall(재현율)** 값이 가장 높은 **XGBoost** 채택
