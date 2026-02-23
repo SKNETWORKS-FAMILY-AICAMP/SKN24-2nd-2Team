@@ -26,19 +26,19 @@
     </tr>
     <tr>
       <td style="text-align: center;">
-        <a href="https://github.com/Akoh-0909"><img src="" alt="GitHub - Akoh-0909"></a>
+        <a href="https://github.com/Akoh-0909"><img src="https://img.shields.io/badge/AKOH--0909-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - Akoh-0909"></a>
       </td>
       <td style="text-align: center;">
-        <a href="https://github.com/min3802"><img src="" alt="GitHub - min3802"></a>
+        <a href="https://github.com/min3802"><img src="https://img.shields.io/badge/min3802-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - min3802"></a>
       </td>
       <td style="text-align: center;">
-        <a href="https://github.com/kyu5KIm"><img src="" alt="GitHub - kyu5KIm"></a>
+        <a href="https://github.com/kyu5KIm"><img src="https://img.shields.io/badge/kyu5KIm-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - kyu5KIm"></a>
       </td>
       <td style="text-align: center;">
-        <a href="https://github.com/Jeich-16"><img src="" alt="GitHub - Jeich-16"></a>
+        <a href="https://github.com/Jeich-16"><img src="https://img.shields.io/badge/Jeich--16-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - Jeich-16"></a>
       </td>
       <td style="text-align: center;">
-        <a href="https://github.com/lifeisgoodlg"><img src="" alt="GitHub - lifeisgoodlg"></a>
+        <a href="https://github.com/lifeisgoodlg"><img src="https://img.shields.io/badge/lifeisgoodlg-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - lifeisgoodlg"></a>
       </td>
     </tr>
   </tbody>
