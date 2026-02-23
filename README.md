@@ -137,7 +137,7 @@
 ### **목표**: 이진 분류 모델을 통해 이탈 고위험군 유저를 식별
 
 1. OkCupid 프로필 데이터를 분석하여 이탈 관련 패턴을 탐색.
-2. ML(LR/DT/RF/XGB/LGBM/CatBoost) 및 DL모델을 학습·비교.
+2. ML(LR/DT/RF/XGB/LGBM/CatBoost) 을 학습·비교.
 3. 클래스 불균형 환경에서 **Recall 최대화**를 핵심 지표로 모델개선.
 4. 본 파이프라인을 다른 구독형 서비스에 적용 가능한 형태로 구축.
 
@@ -201,7 +201,7 @@ Data         pandas, numpy
 Viz          matplotlib, seaborn
 Imbalance    imbalanced-learn (SMOTE)
 Tuning       Optuna, GridSearch, RandomSearch, CrossValidation, K-Fold, early stopping, threshold
-Save         joblib (ML), torch.save state_dict (DL)
+Save         joblib (ML)
 Environment  Jupyter Notebook / VS Code
 Version      Git / GitHub
 ```
