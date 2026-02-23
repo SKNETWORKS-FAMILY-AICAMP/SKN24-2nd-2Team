@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # ============================
 # Python
 # ============================
@@ -91,7 +91,7 @@ wandb/
 !**/.gitkeep
 data/
 models/
-=======
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -299,4 +299,4 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
->>>>>>> e8bf2e7e9b55874c92ba591abc2a548073635a0b
+
