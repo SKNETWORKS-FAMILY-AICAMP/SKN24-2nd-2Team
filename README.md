@@ -315,7 +315,7 @@ Version      Git / GitHub
 | RandomForest | 0.69     | 0.27   | 0.37     |
 | XGBoost      | 0.67     | 0.41   | 0.45     |
 | Light GBM    | 0.65     | 0.58   | 0.52     |
-| CatBoost     | 0.45     | 0.75   | 0.40     |
+| CatBoost     | 0.45     | 0.65   | 0.40     |
 
 
 * **Logistic Regression**
