@@ -190,6 +190,54 @@
 - 수집 시기: 2012년 6월
 - 데이터 타입: 구조화된 프로필 정보 + 자유 텍스트 (에세이)
 
+행 개수: 59,946개
+
+컬럼 개수: 31개
+
+데이터 타입 구성
+
+- int64 → 2개 (age, income)
+- float64 → 1개 (height)
+- object → 28개 (대부분 범주형/텍스트)
+
+범주형 데이터 비중이 높은 프로필 설문 기반 데이터셋
+
+### 데이터 선택
+| 컬럼명       | 사용 여부 | 설명            | 데이터타입 |
+|--------------|-----------|-----------------|------------|
+| age          | ✅        | 사용자 나이     | int64      |
+| status       | ✅        | 연애 상태       | object     |
+| sex          | ✅        | 성별            | object     |
+| orientation  | ✅        | 성적 지향       | object     |
+| body_type    | ✅        | 체형            | object     |
+| diet         | ✅        | 식단 성향       | object     |
+| drinks       | ✅        | 음주 빈도       | object     |
+| drugs        | ✅        | 약물 사용       | object     |
+| education    | ✅        | 학력 상태       | object     |
+| ethnicity    | ❌        | 인종            | object     |
+| height       | ✅        | 키 (inch)       | float64    |
+| income       | ❌        | 연소득 (USD)    | int64      |
+| job          | ✅        | 직업            | object     |
+| last_online  | ✅        | 마지막 접속     | object     |
+| location     | ❌        | 거주 지역       | object     |
+| offspring    | ❌        | 자녀 여부/계획  | object     |
+| pets         | ✅        | 반려동물        | object     |
+| religion     | ✅        | 종교 및 태도    | object     |
+| sign         | ❌        | 별자리 및 태도  | object     |
+| smokes       | ✅        | 흡연 여부       | object     |
+| speaks       | ❌        | 사용 언어       | object     |
+| essay0       | ✅        | 자기소개        | object     |
+| essay1       | ✅        | 인생 방향       | object     |
+| essay2       | ✅        | 잘하는 것       | object     |
+| essay3       | ✅        | 첫인상          | object     |
+| essay4       | ✅        | 취향            | object     |
+| essay5       | ✅        | 필수 요소       | object     |
+| essay6       | ✅        | 많이 생각하는 것| object     |
+| essay7       | ✅        | 금요일 밤       | object     |
+| essay8       | ✅        | 가장 사적인 고백| object     |
+| essay9       | ✅        | 메시지 조건     | object     |
+
+
 ---
 
 ## 3. 기술 스택
@@ -238,25 +286,73 @@ last_online 컬럼 기준:
 - 365일 미만 → 잔류(0)
 ```
 
+![이탈 vs 잔류 인원 수](./assets/prep_churn_bar.png)
+
 ### 전처리 주요 작업
 
+> 💡 범주형 object 타입 컬럼이 많아 **전처리 기준 확립이 핵심 과제**였음
+
 **1. 결측치 처리**
+
+![결측치 히트맵](./assets/eda_missing_heatmap.png)
+
+![결측치 비율](./assets/eda_missing_bar.png)
+
 | 컬럼 | 처리 방법 |
 |---|---|
 | 수치형 (income 등) | 중앙값 대체 |
 | 범주형 (religion, education 등) | 최빈값 대체 또는 'unknown' 처리 |
 | 결측률 70% 초과 컬럼 | 제거 |
 
-**2. 인코딩**
+---
+
+**2. 이상치 처리**
+
+![수치형 컬럼 이상치 분포 (age, height, income)](./assets/eda_outlier_dist.png)
+
+---
+
+**3. 피처 인코딩 상세**
+
+| 컬럼 | 인코딩 방식 | 변환 기준 |
+|---|---|---|
+| `age` | 연령대 그룹화 | 10대별 구간 분류 → `age_group` |
+| `status` | Label Encoding | 연애 중(1) / 안 함(0) |
+| `orientation` | Label Encoding | 이성애자 / 동성애자 |
+| `body_type` | One-Hot Encoding | 마름 / 보통 / 건강 / 통통 4개 컬럼 |
+| `education` | Ordinal Encoding | 석사이상(4) / 학사졸업(3) / 학사재학(2) / 고등이하(1) / 그외(0) |
+| `religion` | Binary Encoding | 종교 있음(1) / 없음(0) |
+| `diet` | Ordinal Encoding | 유연함(0) / 중간(1) / 엄격함(5) |
+| `drinks` | One-Hot Encoding | no_drinks / moderate / heavy 3개 컬럼 |
+| `drugs` | Ordinal Encoding | 안 함(0) / 가끔(1) / 자주(5) |
+| `smokes` | Binary Encoding | 안 함(0) / 조금(1) / 자주(5) |
+| `job` | Ordinal Encoding | 연봉 기준 0~4 분류 |
+| `last_online` | 파생 변수 → churn | 일별 데이터로 변환 후 이탈 기준 적용 |
+
+---
+
+**4. 파생 변수 생성**
+
+| 파생 변수 | 설명 | 생성 방식 |
+|---|---|---|
+| `response_rate` | 답변 성실도 | 전체 컬럼 중 빈칸이 적은 정도 |
+| `total_essay_len` | 에세이 총 글자 수 | essay0~9 글자 수 합산 |
+| `essay_answered_count` | 작성한 에세이 개수 | 작성된 essay 질문 개수 카운트 |
+| `niche_score` | 매칭 시장 내 배타성 지수 | `smokes + drinks + drugs + diet` 누적합 — 음주 0↔1은 성향 차이, 2는 매칭 마찰로 판단 |
+| `churn` | 이탈 여부 (타겟) | last_online 기준 365일 이상 미접속 → 이탈(1) |
+
+---
+
+**5. 인코딩 & 스케일링**
 - 이진 범주형: Label Encoding (sex, status 등)
 - 다중 범주형: One-Hot Encoding (ethnicity, body_type 등)
 - 수치형 범주형: Ordinal Encoding (education, income 등)
-
-**3. 스케일링**
 - ML 모델: StandardScaler (로지스틱 회귀 적용)
 - DL 모델: StandardScaler (전체 피처)
 
-**4. 클래스 불균형 처리**
+---
+
+**6. 클래스 불균형 처리**
 ```
 원본 비율 — 잔류: 92% / 이탈: 8%
 
@@ -266,12 +362,40 @@ last_online 컬럼 기준:
   - DL: pos_weight (BCEWithLogitsLoss)
 ```
 
-**5. 최종 데이터셋**
+---
+
+**7. 최종 데이터셋 구조**
 ```
 행: 59,934명  컬럼: 38개 (특성 37개 + churn 1개)
 Train: 47,947명  Test: 11,987명 (stratify=y)
 이탈 비율 — Train: 8.0%  Test: 8.0%
 ```
+
+| 컬럼명 | 설명 | 데이터타입 |
+|---|---|---|
+| sex | 성별 | int8 |
+| orientation | 성적지향 여부 | int8 |
+| diet | 식단 | int64 |
+| drugs | 약물 사용 여부 | int64 |
+| education | 학력 수준 | float64 |
+| height | 키 (inch) | float64 |
+| body_type_average | 평균 체형 여부 | bool |
+| body_type_curvy | 통통한 체형 여부 | bool |
+| body_type_fit | 건강/탄탄 체형 여부 | bool |
+| body_type_slim | 마른 체형 여부 | bool |
+| smokes | 흡연자 여부 | bool |
+| drinks_heavy | 과음 여부 | bool |
+| drinks_moderate | 적당한 음주 여부 | bool |
+| drinks_no_drinks | 비음주 여부 | bool |
+| job_score | 연봉기준 0~4 | float64 |
+| religion_religion | 종교 여부 | bool |
+| status_encoding | 연애 상태 인코딩값 | int64 |
+| age_group | 연령대 그룹 | int64 |
+| response_rate | 답변 성실도 | float64 |
+| total_essay_len | 에세이 전체 글자 수 합산 | int64 |
+| essay_answered_count | 작성한 에세이 질문 개수 | int64 |
+| niche_score | 매칭 시장 내 배타성 지수 | float64 |
+| churn | 고객 이탈 (타겟) | int64 |
 
 ---
 
@@ -329,6 +453,8 @@ CatBoostClassifier(auto_class_weights='Balanced')
 > ✅ LightGBM Recall: 0.015 → 0.423 (+0.408)  
 > ✅ CatBoost Recall: 0.011 → 0.472 (+0.461) — ML 최고 성능  
 
+![ML 모델별 성능 비교](./assets/ml_compare.png)
+
 ---
 
 ### 6-2. 딥러닝 (DL) 모델 — PyTorch
@@ -376,6 +502,10 @@ EarlyStopping: patience=20
 | ANN Advanced (thr=0.5) | 0.544 | **0.621** | **0.192** | 0.117 |
 | ANN Basic (thr=0.5) | 0.483 | 0.588 | 0.170 | 0.103 |
 
+![DL ANN Basic 학습 곡선](./assets/dl_basic_train.png)
+
+![DL ANN Advanced 학습 곡선](./assets/dl_adv_train.png)
+
 ---
 
 ### 6-3. ML vs DL 최종 비교
@@ -392,6 +522,8 @@ EarlyStopping: patience=20
 > 💡 **ROC-AUC 기준**: DL(0.621) > ML CatBoost(0.611) — DL의 전반적 판별력 우수  
 > 💡 **F1 균형**: Threshold 0.5 기준 ANN Advanced(0.192) ≈ CatBoost(0.189) — 동등  
 > 💡 **데이터 한계**: 프로필 기반 데이터 특성상 ROC-AUC 0.65 이상 향상 어려움  
+
+![ML vs DL 전체 모델 성능 비교](./assets/dl_ml_compare.png)
 
 ---
 
