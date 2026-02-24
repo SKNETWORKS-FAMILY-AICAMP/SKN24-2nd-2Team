@@ -19,11 +19,11 @@
   </colgroup>
   <tbody>
     <tr>
-      <td style="text-align: center;"><img src="./assets/images/team/ara.png" alt="고아라" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/minje.png" alt="권민제" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/kyuho.png" alt="김규호" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/kjh.png" alt="김정현" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/hyunjin.png" alt="최현진" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/ara.png" alt="고아라" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/minje.png" alt="권민제" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/kyuho.png" alt="김규호" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/kjh.png" alt="김정현" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/hyunjin.png" alt="최현진" width="120"></td>
     </tr>
     <tr style="font-weight: bold;">
       <td style="text-align: center;">고아라</td>
@@ -134,10 +134,18 @@
 > 📰 **뉴스 출처**  
 > - 아시아경제, *데이팅앱, 남자만 쓴다…"여성 이용자 유치 어려워"* (2024.05.28) — https://www.asiae.co.kr/article/2024052820301656222
 
+---
+
+#### 🏗️ 데이팅앱의 구조적 이탈 딜레마
+
+> 일반 구독 서비스와 달리, 데이팅앱은 **"매칭 성공 = 앱 이탈"** 이라는 구조적 특수성을 가짐. 
+> 서비스가 잘 작동할수록 사용자가 떠나는 역설적 구조이기 때문에, 이탈 예측과 방지가 더욱 중요하고 어려움.
+
+본 프로젝트는 이러한 배경 속에서, OkCupid 프로필 데이터를 활용해 **고객 이탈 예측 파이프라인을 설계·구현**하고, 실무에서 자주 마주치는 클래스 불균형 문제를 직접 해결하고자 함.
 
 ---
 
-#### 📚 참고 문헌
+#### 📚 Data Sources
 
 | # | 매체 | 제목 | 성격 | 링크 |
 |---|---|---|---|---|
@@ -503,7 +511,7 @@ heatmap
     </tr>
     <tr>
       <td style="text-align: center;"><strong>최현진</strong></td>
-      <td></td>
+      <td>이번 프로젝트를 통해 실제 사용자 데이터를 기반으로 이탈률을 예측해볼 수 있어 의미 있었습니다. 하이퍼파라미터와 threshold를 조정하며 성능 개선을 시도했지만, 데이터와 모델의 한계로 기대만큼의 향상은 이루지 못했습니다. 이를 통해 모델 튜닝뿐 아니라 데이터 전처리와 변수 설계가 성능에 큰 영향을 준다는 점을 배울 수 있었습니다.</td>
     </tr>
   </tbody>
 </table>
@@ -544,6 +552,9 @@ heatmap
 ├── .gitignore
 ├── README.md
 └── requirements.txt
+
+
+
 
 
 
