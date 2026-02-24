@@ -198,7 +198,7 @@
 ### 데이터셋 기본 정보
 
 <div>
-  <img src="./assets/df_info.png" width="70%">
+  <img src="./assets/df_info.png" width="50%">
 </div>
 
 - 출처: [OkCupid Profiles](https://github.com/rudeboybert/JSE_OkCupid)
