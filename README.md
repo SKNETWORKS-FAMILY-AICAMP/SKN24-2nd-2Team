@@ -237,7 +237,7 @@ DL           PyTorch
 Data         pandas, numpy
 Viz          matplotlib, seaborn
 Imbalance    imbalanced-learn (SMOTE)
-Tuning       Optuna
+Tuning       Optuna, GridSearch, RandomSearch, CrossValidation, K-Fold, early stopping, threshold
 Save         joblib (ML), torch.save state_dict (DL)
 Environment  Jupyter Notebook / VS Code
 Version      Git / GitHub
@@ -260,8 +260,8 @@ Version      Git / GitHub
 | 4. ML 모델링 | LR/DT/RF/XGB/LGBM/CatBoost | All | ✅ |
 | 5. DL 모델링 | ANN (PyTorch) | All | ✅ |
 | 6. 성능 비교 | ML vs DL 비교표 & 시각화 | All | ✅ |
-| 7. 수행 결과 | - | 전체 | ✅ |
-| 8. README 작성 | 결과서 정리 | All | ✅ |
+| 7. 수행 결과 | 결과 도출, 한계점 및 개선방안 | All | ✅ |
+| 8. 한줄회고 | 회고(KPT) | All | ✅ |
 
 
 ---
@@ -437,6 +437,8 @@ Train: 47,947명  Test: 11,987명 (stratify=y)
 
 > ⚠️ XGBoost/LightGBM/CatBoost: SMOTE 데이터를 eval_set으로 사용하여 early stopping이 잘못 작동 → Recall 거의 0
 
+![ML 초기 모델 성능 비교 v1](./assets/ml_perf_v1.png)
+
 #### 문제 해결 — 성능 향상을 위한 노력 (v2)
 
 **원인 분석:** SMOTE 처리된 데이터로 early_stopping을 수행하면 원본 불균형 패턴을 학습하지 못함
@@ -468,6 +470,8 @@ CatBoostClassifier(auto_class_weights='Balanced')
 > ✅ XGBoost Recall: 0.018 → 0.411 (+0.393)  
 > ✅ LightGBM Recall: 0.015 → 0.423 (+0.408)  
 > ✅ CatBoost Recall: 0.011 → 0.472 (+0.461) — ML 최고 성능  
+
+![ML 개선 후 모델 성능 비교 v2](./assets/ml_perf_v2.png)
 
 ![ML 모델별 성능 비교](./assets/ml_compare.png)
 
@@ -520,6 +524,8 @@ EarlyStopping: patience=20
 
 > 💡 **patience를 늘려도 ANN Basic Epoch 17, ANN Advanced Epoch 23에서 조기 종료** → 데이터 자체의 한계로 추가 튜닝 효과 없음
 
+![DL 모델 성능 비교](./assets/dl_perf_v2.png)
+
 ![DL ANN Basic 학습 곡선](./assets/dl_basic_train.png)
 
 ![DL ANN Advanced 학습 곡선](./assets/dl_adv_train.png)
@@ -540,6 +546,8 @@ EarlyStopping: patience=20
 > 💡 **ROC-AUC 기준**: DL(0.621) > ML CatBoost(0.611) — DL의 전반적 판별력 우수  
 > 💡 **F1 균형**: Threshold 0.5 기준 ANN Advanced(0.192) ≈ CatBoost(0.189) — 동등  
 > 💡 **데이터 한계**: 프로필 기반 데이터 특성상 ROC-AUC 0.65 이상 향상 어려움  
+
+![ML vs DL 최종 모델 성능 비교](./assets/final_compare.png)
 
 ![ML vs DL 전체 모델 성능 비교](./assets/dl_ml_compare.png)
 
@@ -569,9 +577,20 @@ EarlyStopping: patience=20
 
 ### 테스트 데이터 넣어서 결과 도출
 
-<div>
-  <img src="./assets/final_test.png" width="50%">
-</div>
+> 테스트 데이터: **11,987명** (이탈 955명 / 잔류 11,032명, 비율 8:92 유지)
+
+#### ML 모델 테스트 결과
+
+![ML 모델 테스트 결과](./assets/test_ml_result.png)
+
+#### DL 모델 테스트 결과 & Threshold 비교
+
+![DL 모델 테스트 결과](./assets/test_dl_result.png)
+
+#### ML vs DL 최종 비교
+
+![ML vs DL 최종 테스트 비교](./assets/test_final_compare.png)
+
 
 ### 🔍 한계점
 
