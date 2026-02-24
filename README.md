@@ -220,7 +220,7 @@ Version      Git / GitHub
 
 ## 4. WBS (Work Breakdown Structure)
 <div>
-  <img src="./data/img/WBS.png" width="60%">
+  <img src="./data/img/WBS.png" width="70%">
 </div>
 
 ## 5. 데이터 전처리 결과서 (EDA)
