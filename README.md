@@ -248,7 +248,7 @@ Version      Git / GitHub
 ## 4. WBS (Work Breakdown Structure)
 
 <div>
-  <img src="./data/img/WBS.png" width="50%">
+  <img src="./assets/WBS.png" width="100%">
 </div>
 
 
