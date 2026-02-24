@@ -405,6 +405,10 @@ heatmap
   <img src="./data/img/final_test.png" width="60%">
 </div>
 
+<div>
+ <img width="2734" height="1466" alt="test_img_low" src="https://github.com/user-attachments/assets/687ba366-fd4a-4bb6-9ec3-3a8a5a3ac0fc" width ="60%"/>
+
+</div>
 ### 🔍 한계점
 
 * **미이탈 유저 분석 중 특이 사례 확인**
