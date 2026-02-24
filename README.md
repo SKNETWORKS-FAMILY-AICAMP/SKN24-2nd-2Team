@@ -220,7 +220,7 @@ Version      Git / GitHub
 
 ## 4. WBS (Work Breakdown Structure)
 <div>
-  <img src="./data/img/WBS.png" width="70%">
+  <img src="./data/img/WBS.png" width="100%">
 </div>
 
 ## 5. 데이터 전처리 결과서 (EDA)
@@ -231,10 +231,10 @@ Version      Git / GitHub
 
 ### 결측치 이상치
 <div>
-  <img src="./data/img/descrivbe.png" width="30%"><br>
-  <img src="./data/img/outlier_age.png" width="40%"> <br>
-  <img src="./data/img/outlier_height.png" width="40%"> <br>
-  <img src="./data/img/object_col.png" width="40%">
+  <img src="./data/img/descrivbe.png" width="50%"><br>
+  <img src="./data/img/outlier_age.png" width="60%"> <br>
+  <img src="./data/img/outlier_height.png" width="60%"> <br>
+  <img src="./data/img/object_col.png" width="60%">
   
 </div>
 
@@ -250,7 +250,7 @@ Version      Git / GitHub
 | **body_type** | 체형 | 마름, 보통, 건강, 통통 |
 | **education** | 학력 | 석사이상(4), 학사졸업(3), 학사재학(2), 고등이하(1), 그외(0) |
 | **religion** | 종교 | 종교가 있다(1), 없다(0) |
-| **job** | 직업 | 연봉 기준으로 0~4로 분류 |
+| **job** | 직업 | 연봉 기준으로 0~3로 분류 |
 
 ---
 
@@ -315,7 +315,7 @@ heatmap
 | body_type_slim         | 마른 체형 여부                | bool       |
 | smokes                 | 흡연자 여부                   | bool      |
 | drinks                 | 과음 여부(0, 1 ,5)           | int64      |
-| job_score              | 연봉기준  0~4                | float64    |
+| job_score              | 연봉기준  0~3                | float64    |
 | religion_religion      | 종교 여부                    | bool       |
 | status_encoding        | 연애 상태 인코딩값            | int64      |
 | age_group              | 연령대 그룹                  | int64      |
