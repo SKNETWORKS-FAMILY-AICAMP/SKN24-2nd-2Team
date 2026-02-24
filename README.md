@@ -628,9 +628,9 @@ EarlyStopping: patience=20
     <tr>
       <td style="text-align: center;"><strong>고아라</strong></td>
       <td>
-  <strong>[Keep]</strong> README 파이프라인 및 문서화 작업, 깃허브 초기세팅 및 컨트리뷰트 등에서 팀에 기여할 수 있었다.<br>
+  <strong>[Keep]</strong> 깃허브와 README 초기세팅 및 틀, 파이프라인 구성 등 문서화 작업에서 팀에 기여할 수 있었다.<br>
   <strong>[Problem]</strong> ML/DL 모델의 전체적인 흐름과 구조에 대한 학습이 더 필요하다고 느꼈다.<br>
-  <strong>[Try]</strong> SMOTE 적용 후 XGBoost/LightGBM의 Recall이 0에 가까워지는 문제를 직접 발견하고 원인을 분석해 해결하면서, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다. ML과 DL 전반적인 파이프라인에 대한 좀 더 깊은 이해가 필요할 것 같다. 
+  <strong>[Try]</strong> SMOTE 적용 후 XGBoost/LightGBM의 Recall이 0에 가까워지는 문제를 직접 발견하고 원인을 분석해 해결하면서, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다.  ML과 DL의 전반적인 파이프라인과 코드활용에 대한 좀 더 깊은 이해와 학습이 필요할 것 같다.  
 </td>
     </tr>
     <tr>
