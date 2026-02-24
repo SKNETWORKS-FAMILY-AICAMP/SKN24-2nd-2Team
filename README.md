@@ -93,11 +93,11 @@
 
 | 출처 | 데이터 |
 |---|---|
-| Business of Apps (2026) | 전 세계 시장 규모 연도별 |
-| Statista / Priori Data | 글로벌 이용자 수 |
-| Adjust Valentine's Day Report (2025) | Day-1/7/30 리텐션율 연도별 추이 |
-| Similarweb (2023) | 앱별 30일 리텐션 비교 |
-| DemandSage Tinder Statistics (2026) | Tinder 유료 구독자 연도별 |
+| [Business of Apps (2026)](https://www.businessofapps.com/data/dating-app-market/) | 전 세계 시장 규모 연도별 |
+| [Statista / Priori Data](https://prioridata.com/data/tinder-statistics/) | 글로벌 이용자 수 |
+| [Adjust Valentine's Day Report (2025)](https://www.adjust.com/blog/valentines-day-app-trends-2025/) | Day-1/7/30 리텐션율 연도별 추이 |
+| [Similarweb (2023)](https://www.similarweb.com/blog/insights/hinge-bumble-dating-retention/) | 앱별 30일 리텐션 비교 |
+| [DemandSage Tinder Statistics (2026)](https://www.demandsage.com/tinder-statistics/) | Tinder 유료 구독자 연도별 |
 
 --- 
 
@@ -113,7 +113,7 @@
 | 국내 로맨스 스캠 피해액 (2023) | **55억 1,200만원** — 2020년 대비 15배 급증 | 아시아경제, 2024.05.23 |
 
 
-![데이팅앱 시장 현황 — 뉴스 데이터 기반](./assets/background_charts_v2.png)
+![데이팅앱 시장 현황 — 뉴스 데이터 기반](./assets/background_charts_v3 (1).png)
 
 
 > 📰 **뉴스 출처**  
@@ -137,18 +137,7 @@
 
 ---
 
-#### 🏗️ 데이팅앱의 구조적 이탈 딜레마
-
-> 일반 구독 서비스와 달리, 데이팅앱은 **"매칭 성공 = 앱 이탈"** 이라는 구조적 특수성을 가짐. 
-> 서비스가 잘 작동할수록 사용자가 떠나는 역설적 구조이기 때문에, 이탈 예측과 방지가 더욱 중요하고 어려움.
-> NYT는 "데이팅 앱이 연애하는 삶을 달라지게 했지만, 젊은 사용자들이 돈을 내도록 설득하진 못했다"고 평가하였음.
-
-본 프로젝트는 이러한 배경 속에서, OkCupid 프로필 데이터를 활용해 **고객 이탈 예측 파이프라인을 설계·구현**하고, 
-실무에서 자주 마주치는 클래스 불균형 문제를 직접 해결하고자 함.
-
----
-
-#### 📚 참고 문헌
+#### 📚 Data Sources
 
 | # | 매체 | 제목 | 성격 | 링크 |
 |---|---|---|---|---|
@@ -160,12 +149,12 @@
 
 
 
-### 프로젝트 목표
+### 프로젝트 목표: 이진 분류 모델을 통해 이탈 고위험군 유저를 식별
 
-1. OkCupid 프로필 데이터를 분석하여 이탈 관련 패턴을 탐색.
-2. ML(LR/DT/RF/XGB/LGBM/CatBoost) 및 DL모델을 학습·비교.
-3. 클래스 불균형 환경에서 **Recall 최대화**를 핵심 지표로 모델개선.
-4. 본 파이프라인을 다른 구독형 서비스에 적용 가능한 형태로 구축.
+1. OkCupid 프로필 데이터를 분석하여 이탈 관련 패턴을 탐색
+2. ML(LR/DT/RF/XGB/LGBM/CatBoost) 및 DL모델을 학습·비교
+3. 클래스 불균형 환경에서 **Recall 최대화**를 핵심 지표로 모델개선
+4. 본 파이프라인을 다른 구독형 서비스에 적용 가능한 형태로 구축
 
 ### 데이터셋 한계 & 그럼에도 얻을 수 있는 인사이트
 
@@ -749,5 +738,6 @@ ANN Advanced         ROC-AUC 0.621   ← 전체 최고
 
 
 ```
+
 
 
