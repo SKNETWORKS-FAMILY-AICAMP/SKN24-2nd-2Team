@@ -5,7 +5,7 @@
 ---
 
 ## 1. 2팀 소개 
-- **팀명**: 천생연분 (churn生緣分)
+- **팀명**: 천생연분 (churn 生緣分)
 - **팀원**:
   
 <table>
@@ -65,7 +65,7 @@
 > - ① 시장 규모는 10년간 **5.7배 성장** ($1.69B → $9.65B) — 그러나 2021년 이후 성장세 뚜렷하게 둔화
 > - ② 이용자 수는 꾸준히 증가했지만, ③ **리텐션율(복귀율)은 매년 하락** — 이용자는 늘어도 앱에 머무르지 않음
 > - ④ 다운로드는 2019년 역대 최고(287M) 이후 **지속 감소** — 신규 유입이 줄고 있음
-> - ⑤ 앱별 30일 리텐션: **Bumble 11%, Tinder 7.8%** — 업계 전체 평균(6%) 대비 여전히 낮은 수준
+> - ⑤ 앱별 30일 리텐션: **Bumble 11%, Tinder 7.8%** — 업계 전체 평균(6%) 대비 여전히 높은 수준
 > - ⑥ Tinder 유료 구독자는 2022년 고점(10.8M) 이후 **첫 역성장** → 수익화 위기의 신호
 
 | 출처 | 데이터 |
@@ -137,8 +137,8 @@
 ### **목표**: 이진 분류 모델을 통해 이탈 고위험군 유저를 식별
 
 1. OkCupid 프로필 데이터를 분석하여 이탈 관련 패턴을 탐색.
-2. ML(LR/DT/RF/XGB/LGBM/CatBoost) 을 학습·비교.
-3. 클래스 불균형 환경에서 **Recall 최대화**를 핵심 지표로 모델개선.
+2. ML(LR/DT/RF/XGB/LGBM/CatBoost)을 학습·비교.
+3. 클래스 불균형 환경에서 **Recall 최대화**를 핵심 지표로 모델 개선.
 4. 본 파이프라인을 다른 구독형 서비스에 적용 가능한 형태로 구축.
 
 ### 데이터셋 기본 정보
@@ -147,7 +147,7 @@
   <img src="./data/img/df_info.png" width="40%">
 </div>
 
-- 출처: Kaggle - OkCupid Profiles
+- 출처: - [OkCupid Profiles](https://github.com/rudeboybert/JSE_OkCupid)
 - 규모: 약 59,946건 (거의 60,000명)
 - 컬럼 개수: 31개
 - 데이터 타입: 
@@ -234,7 +234,7 @@ Version      Git / GitHub
 | :--- | :--- | :--- |
 | **age** | 나이 | 나이대 별 |
 | **status** | 연애 중 | 연애를 하는 중, 안하는 중 |
-| **orientation** | 성적지향 | 이성애자, 동성애자 |
+| **orientation** | 성적지향 | 이성애자, 성소수자 |
 | **body_type** | 체형 | 마름, 보통, 건강, 통통 |
 | **education** | 학력 | 석사이상(4), 학사졸업(3), 학사재학(2), 고등이하(1), 그외(0) |
 | **religion** | 종교 | 종교가 있다(1), 없다(0) |
@@ -248,8 +248,8 @@ Version      Git / GitHub
 - **drugs (약물 사용)** : 안한다(0), 가끔한다(1), 자주한다(5)
 - **smokes (흡연 여부)** : 흡연을 안한다(0), 조금한다(1), 자주 한다(5)
 - **niche_score (매칭 시장 내 배타성 지수)** : smokes + drinks + drugs + diet 매칭 마찰력 누적
-  > **정의:** 탐색이론기반으로 유저의 생활 습관 데이터에 가중치를 부여하여 매칭 난이도를 수치화 한 지표
-  > **Note:** 음주 기준 0과 1의 지표는 성향차이라 판단 하지만 %의 지표는 성향차이가 아닐것이라 판단해 niche_score 1의 합산보다 높게 설정
+  > **정의:** 탐색이론기반으로 유저의 생활 습관 데이터에 가중치를 부여하여 매칭 난이도를 수치화 한 지표 <br>
+  > **Note:** 음주 기준 0과 1의 지표는 성향 차이라 판단 하지만 %의 지표는 성향 차이가 아닐 것이라 판단해 niche_score 1의 합산보다 높게 설정
 
 ---
 
@@ -289,29 +289,29 @@ heatmap
 
 
 ### 최종 데이터 구조
-| 컬럼명                                               | 설명                         | 데이터타입 |
-|-----------------------------------------------------|-----------------------------|------------|
-| sex                                                 | 성별                        | int8       |
-| orientation                                         | 성적지향 여부                 | int8       |
-| diet                                                | 식단                         | int64      |
-| drugs                                               | 약물 사용 여부                | int64      |
-| education                                           | 학력 수준                    | float64    |
-| height                                              | 키 (inch)                   | float64    |
-| body_type_average                                   | 평균 체형 여부                | bool       |
-| body_type_curvy                                     | 통통한 체형 여부              | bool       |
-| body_type_fit                                       | 건강 체형 여부                | bool       |
-| body_type_slim                                      | 마른 체형 여부                | bool       |
-| smokes                                              | 흡연자 여부                   | bool      |
-| drinks                                              | 과음 여부(0, 1 ,5)           | int64      |
-| job_score                                           | 연봉기준  0~4                | float64    |
-| religion_religion                                   | 종교 여부                    | bool       |
-| status_encoding                                     | 연애 상태 인코딩값            | int64      |
-| age_group                                           | 연령대 그룹                  | int64      |
-| response rate                                       | 답변 성실도                  | float64    |
-| total_essay_len                                     | 에세이 전체 글자 수 합산       | int64      |
-| essay_answered_count                                | 작성한 에세이 질문 개수        | int64      |
-| niche_score                                         | 매칭 시장 내 배타성지수        | float64    |
-| churn                                               | 고객 이탈                    | int64      |
+| 컬럼명                  | 설명                         | 데이터타입 |
+|------------------------|-----------------------------|------------|
+| sex                    | 성별                        | int8       |
+| orientation            | 성적지향 여부                 | int8       |
+| diet                   | 식단                         | int64      |
+| drugs                  | 약물 사용 여부                | int64      |
+| education              | 학력 수준                    | float64    |
+| height                 | 키 (inch)                   | float64    |
+| body_type_average      | 평균 체형 여부                | bool       |
+| body_type_curvy        | 통통한 체형 여부              | bool       |
+| body_type_fit          | 건강 체형 여부                | bool       |
+| body_type_slim         | 마른 체형 여부                | bool       |
+| smokes                 | 흡연자 여부                   | bool      |
+| drinks                 | 과음 여부(0, 1 ,5)           | int64      |
+| job_score              | 연봉기준  0~4                | float64    |
+| religion_religion      | 종교 여부                    | bool       |
+| status_encoding        | 연애 상태 인코딩값            | int64      |
+| age_group              | 연령대 그룹                  | int64      |
+| response rate          | 답변 성실도                  | float64    |
+| total_essay_len        | 에세이 전체 글자 수 합산       | int64      |
+| essay_answered_count   | 작성한 에세이 질문 개수        | int64      |
+| niche_score            | 매칭 시장 내 배타성지수        | float64    |
+| churn                  | 고객 이탈                    | int64      |
 
 
 ## 6. 인공지능 학습 결과서
@@ -429,7 +429,7 @@ heatmap
     </tr>
     <tr>
       <td style="text-align: center;"><strong>권민제</strong></td>
-      <td></td>
+      <td>이번 프로젝트를 통해 모델의 성능 향상을 위한 노력을 기울인 결과, 하이퍼 파라미터 튜닝만큼이나 목적에 부합하는 데이터 전처리가 모델의 예측력에 결정적인 영향을 미친다는 점을 깊이 체감했습니다.  <br>이러한 성찰을 바탕으로 향후에는 비지도 학습을 활용하여 유저의 이탈 동기를 정교하게 라벨링하고 세분화함으로써, 현재의 이진 분류 모델이 가진 한계를 극복하고 모델의 변별력을 한층 더 고도화하는 시도를 이어가고자 합니다.</td>
     </tr>
     <tr>
       <td style="text-align: center;"><strong>김규호</strong></td>
@@ -439,7 +439,7 @@ heatmap
     </tr>
     <tr>
       <td style="text-align: center;"><strong>김정현</strong></td>
-      <td></td>
+      <td>이번 프로젝트 진행을 위해 살펴본 해당 데이터셋은 대부분 문자열 값을 갖는 컬럼들이었습니다. 시간이 오래 걸릴 것으로 예상되어 팀원들과 하나씩 의견을 나누며 EDA/전처리 과정을 수행했습니다. <br>다만 컬럼 하나하나마다 범주화를 어떻게 할지 정하는 게 쉽지 않아 전처리 작업이 어려웠고, 기대만큼 모델들의 성능이 나오지 않아 걱정이 컸습니다. 전처리에 대해서는, 처음부터 복잡한 전처리에 매달리기보다 아주 단순한 모델을 먼저 만들고 단계적으로 전처리를 고도화하는 방식을 고려해 보겠습니다. 또한, 성능 향상에 도움이 되는 방법들을 적용해 보고 성능 변화를 살펴보도록 하겠습니다.</td>
     </tr>
     <tr>
       <td style="text-align: center;"><strong>최현진</strong></td>
@@ -457,7 +457,7 @@ heatmap
 📁 SKN24-2ND-2Team/
 ├── 📁 data/
 |   ├──📁 img/               ← README의 사용된 사진
-│   ├── Original data.csv     ← Kaggle 원본 데이터 CSV (gitignore 처리)
+│   ├── Original data.csv     ← 원본 데이터 CSV (gitignore 처리)
 │   └── Original data_process ← 전처리 완료데이터 CSV (gitignore 처리)
 │
 ├── 📁 docs/
