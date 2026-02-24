@@ -19,11 +19,11 @@
   </colgroup>
   <tbody>
     <tr>
-      <td style="text-align: center;"><img src="./assets/images/team/ara.png" alt="고아라" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/minje.png" alt="권민제" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/kyuho.png" alt="김규호" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/kjh.png" alt="김정현" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/hyunjin.png" alt="최현진" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/ara.png" alt="고아라" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/minje.png" alt="권민제" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/kyuho.png" alt="김규호" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/kjh.png" alt="김정현" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/hyunjin.png" alt="최현진" width="120"></td>
     </tr>
     <tr style="font-weight: bold;">
       <td style="text-align: center;">고아라</td>
@@ -110,7 +110,7 @@
 | 국내 로맨스 스캠 피해액 (2023) | **55억 1,200만원** — 2020년 대비 15배 급증 | 아시아경제, 2024.05.23 |
 
 
-![데이팅앱 시장 현황 — 뉴스 데이터 기반](./assets/background_charts_v3 (1).png)
+![데이팅앱 시장 현황 — 뉴스 데이터 기반](./data/img/background_charts_v3.png)
 
 
 > 📰 **뉴스 출처**  
@@ -146,12 +146,10 @@
 | 5 | 고대신문 (2024.06.03) | 틀린 만남은 없다, 문화로 자리 잡은 데이팅 앱 | 📰 대학신문 — 국내 2030 이용 현황·진정성 인식 설문 | [바로가기](https://www.kunews.ac.kr/news/articleView.html?idxno=42496) |
 
 
-
-
 ### **프로젝트 목표**: 이진 분류 모델을 통해 이탈 고위험군 유저를 식별
 
 1. OkCupid 프로필 데이터를 분석하여 이탈 관련 패턴을 탐색.
-2. ML(LR/DT/RF/XGB/LGBM/CatBoost)을 학습·비교.
+2. ML(LR/RF/XGB/LGBM/CatBoost)을 학습·비교.
 3. 클래스 불균형 환경에서 **Recall 최대화**를 핵심 지표로 모델 개선.
 4. 본 파이프라인을 다른 구독형 서비스에 적용 가능한 형태로 구축.
 
@@ -164,8 +162,6 @@
 - 출처: - [OkCupid Profiles](https://github.com/rudeboybert/JSE_OkCupid)
 - 규모: 약 59,946건 (거의 60,000명)
 - 컬럼 개수: 31개
-- 수집 지역: 샌프란시스코 (San Francisco)
-- 수집 시기: 2012년 6월
 - 데이터 타입: 
   - int64 → 2개 (age, income)
   - float64 → 1개 (height)
@@ -224,7 +220,7 @@ Version      Git / GitHub
 
 ## 4. WBS (Work Breakdown Structure)
 <div>
-  <img src="./data/img/WBS.png" width="50%">
+  <img src="./data/img/WBS.png" width="60%">
 </div>
 
 ## 5. 데이터 전처리 결과서 (EDA)
@@ -343,7 +339,7 @@ heatmap
 | 모델명        | Accuracy | Recall | F1-Score |
 |--------------|----------|--------|----------|
 | Logistic     | 0.59     | 0.49   | 0.45     |
-| RandomForest | 0.69     | 0.27   | 0.37     |
+| RandomForest | 0.57     | 0.37   | 0.41     |
 | XGBoost      | 0.67     | 0.41   | 0.45     |
 | Light GBM    | 0.65     | 0.58   | 0.52     |
 | CatBoost     | 0.45     | 0.65   | 0.40     |
@@ -373,7 +369,7 @@ heatmap
 | 모델명        | Accuracy | Recall | F1-Score |
 |--------------|----------|--------|----------|
 | Logistic     | 0.58     | 0.55   | 0.57     |
-| RandomForest | 0.66     | 0.54   | 0.51     |
+| RandomForest | 0.60     | 0.48   | 0.48     |
 | XGBoost      | 0.58     | 0.75   | 0.55     |
 | Light GBM    | 0.60     | 0.72   | 0.54     |
 | CatBoost     | 0.55     | 0.70   | 0.45     |
@@ -404,7 +400,7 @@ heatmap
 ### 테스트 데이터 넣어서 결과 도출
 
 <div>
-  <img src="./data/img/final_test.png" width="50%">
+  <img src="./data/img/final_test.png" width="60%">
 </div>
 
 ### 🔍 한계점
@@ -463,7 +459,7 @@ heatmap
     </tr>
     <tr>
       <td style="text-align: center;"><strong>최현진</strong></td>
-      <td></td>
+      <td>이번 프로젝트를 통해 실제 사용자 데이터를 기반으로 이탈률을 예측해볼 수 있어 의미 있었습니다. 하이퍼파라미터와 threshold를 조정하며 성능 개선을 시도했지만, 데이터와 모델의 한계로 기대만큼의 향상은 이루지 못했습니다. 이를 통해 모델 튜닝뿐 아니라 데이터 전처리와 변수 설계가 성능에 큰 영향을 준다는 점을 배울 수 있었습니다.</td>
     </tr>
   </tbody>
 </table>
