@@ -1,5 +1,7 @@
 # 🚀 SK네트웍스 Family AI 캠프 24기 2차 프로젝트 
+
 ## 주제: 💘 OkCupid 데이팅앱 유저 데이터를 활용한 가입 고객 이탈 예측 (Churn Prediction)
+
 
 
 ---
@@ -7,16 +9,22 @@
 ## 1. 2팀 소개 
 - **팀명**: 천생연분 (churn 生緣分)
 - **팀원**:
-  
-<table>
+ <table>
   <colgroup>
-    <col style="width: 20%;">
-    <col style="width: 20%;">
-    <col style="width: 20%;">
-    <col style="width: 20%;">
-    <col style="width: 20%;">
+    <col style="width: 100%;">
+    <col style="width: 100%;">
+    <col style="width: 100%;">
+    <col style="width: 100%;">
+    <col style="width: 100%;">
   </colgroup>
   <tbody>
+    <tr>
+      <td style="text-align: center;"><img src="./assets/images/team/ara.png" alt="고아라" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/minje.png" alt="권민제" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/kyuho.png" alt="김규호" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/kjh.png" alt="김정현" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/hyunjin.png" alt="최현진" width="120"></td>
+    </tr>
     <tr style="font-weight: bold;">
       <td style="text-align: center;">고아라</td>
       <td style="text-align: center;">권민제</td>
@@ -26,23 +34,35 @@
     </tr>
     <tr>
       <td style="text-align: center;">
-        <a href="https://github.com/Akoh-0909"><img src="https://img.shields.io/badge/AKOH--0909-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - Akoh-0909"></a>
+        <a href="https://github.com/Akoh-0909">
+          <img src="https://img.shields.io/badge/AKOH--0909-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+        </a>
       </td>
       <td style="text-align: center;">
-        <a href="https://github.com/min3802"><img src="https://img.shields.io/badge/min3802-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - min3802"></a>
+        <a href="https://github.com/min3802">
+          <img src="https://img.shields.io/badge/min3802-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+        </a>
       </td>
       <td style="text-align: center;">
-        <a href="https://github.com/kyu5KIm"><img src="https://img.shields.io/badge/kyu5KIm-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - kyu5KIm"></a>
+        <a href="https://github.com/kyu5KIm">
+          <img src="https://img.shields.io/badge/kyu5KIm-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+        </a>
       </td>
       <td style="text-align: center;">
-        <a href="https://github.com/Jeich-16"><img src="https://img.shields.io/badge/Jeich--16-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - Jeich-16"></a>
+        <a href="https://github.com/Jeich-16">
+          <img src="https://img.shields.io/badge/Jeich--16-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+        </a>
       </td>
       <td style="text-align: center;">
-        <a href="https://github.com/lifeisgoodlg"><img src="https://img.shields.io/badge/lifeisgoodlg-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub - lifeisgoodlg"></a>
+        <a href="https://github.com/lifeisgoodlg">
+          <img src="https://img.shields.io/badge/lifeisgoodlg-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+        </a>
       </td>
     </tr>
   </tbody>
 </table>
+
+---
 
 
 ## 2. 프로젝트 개요
@@ -70,11 +90,11 @@
 
 | 출처 | 데이터 |
 |---|---|
-| Business of Apps (2026) | 전 세계 시장 규모 연도별 |
-| Statista / Priori Data | 글로벌 이용자 수 |
-| Adjust Valentine's Day Report (2025) | Day-1/7/30 리텐션율 연도별 추이 |
-| Similarweb (2023) | 앱별 30일 리텐션 비교 |
-| DemandSage Tinder Statistics (2026) | Tinder 유료 구독자 연도별 |
+| [Business of Apps (2026)](https://www.businessofapps.com/data/dating-app-market/) | 전 세계 시장 규모 연도별 |
+| [Statista / Priori Data](https://prioridata.com/data/tinder-statistics/) | 글로벌 이용자 수 |
+| [Adjust Valentine's Day Report (2025)](https://www.adjust.com/blog/valentines-day-app-trends-2025/) | Day-1/7/30 리텐션율 연도별 추이 |
+| [Similarweb (2023)](https://www.similarweb.com/blog/insights/hinge-bumble-dating-retention/) | 앱별 30일 리텐션 비교 |
+| [DemandSage Tinder Statistics (2026)](https://www.demandsage.com/tinder-statistics/) | Tinder 유료 구독자 연도별 |
 
 --- 
 
@@ -90,7 +110,7 @@
 | 국내 로맨스 스캠 피해액 (2023) | **55억 1,200만원** — 2020년 대비 15배 급증 | 아시아경제, 2024.05.23 |
 
 
-![데이팅앱 시장 현황 — 뉴스 데이터 기반](./data/img/background_charts_v2.png)
+![데이팅앱 시장 현황 — 뉴스 데이터 기반](./assets/background_charts_v3 (1).png)
 
 
 > 📰 **뉴스 출처**  
@@ -112,16 +132,6 @@
 > 📰 **뉴스 출처**  
 > - 아시아경제, *데이팅앱, 남자만 쓴다…"여성 이용자 유치 어려워"* (2024.05.28) — https://www.asiae.co.kr/article/2024052820301656222
 
----
-
-#### 🏗️ 데이팅앱의 구조적 이탈 딜레마
-
-> 일반 구독 서비스와 달리, 데이팅앱은 **"매칭 성공 = 앱 이탈"** 이라는 구조적 특수성을 가짐. 
-> 서비스가 잘 작동할수록 사용자가 떠나는 역설적 구조이기 때문에, 이탈 예측과 방지가 더욱 중요하고 어려움.
-> NYT는 "데이팅 앱이 연애하는 삶을 달라지게 했지만, 젊은 사용자들이 돈을 내도록 설득하진 못했다"고 평가하였음.
-
-본 프로젝트는 이러한 배경 속에서, OkCupid 프로필 데이터를 활용해 **고객 이탈 예측 파이프라인을 설계·구현**하고, 
-실무에서 자주 마주치는 클래스 불균형 문제를 직접 해결하고자 함.
 
 ---
 
@@ -134,7 +144,11 @@
 | 3 | 아시아경제 (2024.05.28) | 데이팅앱, 남자만 쓴다…"여성 이용자 유치 어려워" | 📰 뉴스 — FT·Mintel 성비 불균형·시총 손실 인용 | [바로가기](https://www.asiae.co.kr/article/2024052820301656222) |
 | 4 | openads (2024.02.05) | 자만추? 앱만추! 얼마를 써야 사랑을 찾을 수 있나요? | 📊 마케팅 인사이트 — 국내 데이팅앱 시장·소비자 지출 분석 (data.ai 인용) | [바로가기](https://www.openads.co.kr/content/contentDetail?contsId=12476) |
 | 5 | 고대신문 (2024.06.03) | 틀린 만남은 없다, 문화로 자리 잡은 데이팅 앱 | 📰 대학신문 — 국내 2030 이용 현황·진정성 인식 설문 | [바로가기](https://www.kunews.ac.kr/news/articleView.html?idxno=42496) |
-### **목표**: 이진 분류 모델을 통해 이탈 고위험군 유저를 식별
+
+
+
+
+### **프로젝트 목표**: 이진 분류 모델을 통해 이탈 고위험군 유저를 식별
 
 1. OkCupid 프로필 데이터를 분석하여 이탈 관련 패턴을 탐색.
 2. ML(LR/DT/RF/XGB/LGBM/CatBoost)을 학습·비교.
@@ -150,6 +164,8 @@
 - 출처: - [OkCupid Profiles](https://github.com/rudeboybert/JSE_OkCupid)
 - 규모: 약 59,946건 (거의 60,000명)
 - 컬럼 개수: 31개
+- 수집 지역: 샌프란시스코 (San Francisco)
+- 수집 시기: 2012년 6월
 - 데이터 타입: 
   - int64 → 2개 (age, income)
   - float64 → 1개 (height)
@@ -425,7 +441,11 @@ heatmap
   <tbody>
     <tr>
       <td style="text-align: center;"><strong>고아라</strong></td>
-      <td>클래스 불균형 문제를 단순 SMOTE 하나로 해결하려 했다가 XGBoost/LightGBM에서 Recall이 0에 가까워지는 걸 보고, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다.</td>
+      <td>
+  <strong>[Keep]</strong> 데이터 전처리 설계와 문서화 작업에서 팀에 기여할 수 있었다.<br>
+  <strong>[Problem]</strong> ML/DL 모델의 전체적인 흐름과 구조에 대한 학습이 더 필요하다고 느꼈다.<br>
+  <strong>[Try]</strong> SMOTE 적용 후 XGBoost/LightGBM의 Recall이 0에 가까워지는 문제를 직접 발견하고 원인을 분석해 해결하면서, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다. 다음엔 ML/DL 전체 파이프라인을 처음부터 직접 구현해보는 학습을 진행할 것이다.
+</td>
     </tr>
     <tr>
       <td style="text-align: center;"><strong>권민제</strong></td>
