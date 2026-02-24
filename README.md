@@ -19,11 +19,11 @@
   </colgroup>
   <tbody>
     <tr>
-      <td style="text-align: center;"><img src="./assets/images/team/ara.png" alt="고아라" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/minje.png" alt="권민제" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/kyuho.png" alt="김규호" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/kjh.png" alt="김정현" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/hyunjin.png" alt="최현진" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/ara.png" alt="고아라" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/minje.png" alt="권민제" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/kyuho.png" alt="김규호" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/kjh.png" alt="김정현" width="120"></td>
+      <td style="text-align: center;"><img src="./data/img/hyunjin.png" alt="최현진" width="120"></td>
     </tr>
     <tr style="font-weight: bold;">
       <td style="text-align: center;">고아라</td>
@@ -112,7 +112,7 @@
 | 국내 로맨스 스캠 피해액 (2023) | **55억 1,200만원** — 2020년 대비 15배 급증 | 아시아경제, 2024.05.23 |
 
 
-![데이팅앱 시장 현황 — 뉴스 데이터 기반](./assets/background_charts_v3 (1).png)
+![데이팅앱 시장 현황 — 뉴스 데이터 기반](./data/img/background_charts_v3.png)
 
 
 > 📰 **뉴스 출처**  
@@ -134,6 +134,15 @@
 > 📰 **뉴스 출처**  
 > - 아시아경제, *데이팅앱, 남자만 쓴다…"여성 이용자 유치 어려워"* (2024.05.28) — https://www.asiae.co.kr/article/2024052820301656222
 
+#### 🏗️ 데이팅앱의 구조적 이탈 딜레마
+
+> 일반 구독 서비스와 달리, 데이팅앱은 **"매칭 성공 = 앱 이탈"** 이라는 구조적 특수성을 가짐. 
+> 서비스가 잘 작동할수록 사용자가 떠나는 역설적 구조이기 때문에, 이탈 예측과 방지가 더욱 중요하고 어려움.
+> NYT는 "데이팅 앱이 연애하는 삶을 달라지게 했지만, 젊은 사용자들이 돈을 내도록 설득하진 못했다"고 평가하였음.
+
+본 프로젝트는 이러한 배경 속에서, OkCupid 프로필 데이터를 활용해 **고객 이탈 예측 파이프라인을 설계·구현**하고, 
+실무에서 자주 마주치는 클래스 불균형 문제를 직접 해결하고자 함.
+
 
 ---
 
@@ -148,12 +157,10 @@
 | 5 | 고대신문 (2024.06.03) | 틀린 만남은 없다, 문화로 자리 잡은 데이팅 앱 | 📰 대학신문 — 국내 2030 이용 현황·진정성 인식 설문 | [바로가기](https://www.kunews.ac.kr/news/articleView.html?idxno=42496) |
 
 
-
-
 ### **프로젝트 목표**: 이진 분류 모델을 통해 이탈 고위험군 유저를 식별
 
 1. OkCupid 프로필 데이터를 분석하여 이탈 관련 패턴을 탐색.
-2. ML(LR/DT/RF/XGB/LGBM/CatBoost)을 학습·비교.
+2. ML(LR/RF/XGB/LGBM/CatBoost)을 학습·비교.
 3. 클래스 불균형 환경에서 **Recall 최대화**를 핵심 지표로 모델 개선.
 4. 본 파이프라인을 다른 구독형 서비스에 적용 가능한 형태로 구축.
 
@@ -173,8 +180,6 @@
 - 출처: - [OkCupid Profiles](https://github.com/rudeboybert/JSE_OkCupid)
 - 규모: 약 59,946건 (거의 60,000명)
 - 컬럼 개수: 31개
-- 수집 지역: 샌프란시스코 (San Francisco)
-- 수집 시기: 2012년 6월
 - 데이터 타입: 
   - int64 → 2개 (age, income)
   - float64 → 1개 (height)
@@ -233,7 +238,7 @@ Version      Git / GitHub
 
 ## 4. WBS (Work Breakdown Structure)
 <div>
-  <img src="./data/img/WBS.png" width="50%">
+  <img src="./data/img/WBS.png" width="100%">
 </div>
 
 ## 5. 데이터 전처리 결과서 (EDA)
@@ -244,10 +249,10 @@ Version      Git / GitHub
 
 ### 결측치 이상치
 <div>
-  <img src="./data/img/descrivbe.png" width="30%"><br>
-  <img src="./data/img/outlier_age.png" width="40%"> <br>
-  <img src="./data/img/outlier_height.png" width="40%"> <br>
-  <img src="./data/img/object_col.png" width="40%">
+  <img src="./data/img/descrivbe.png" width="50%"><br>
+  <img src="./data/img/outlier_age.png" width="60%"> <br>
+  <img src="./data/img/outlier_height.png" width="60%"> <br>
+  <img src="./data/img/object_col.png" width="60%">
   
 </div>
 
@@ -263,7 +268,7 @@ Version      Git / GitHub
 | **body_type** | 체형 | 마름, 보통, 건강, 통통 |
 | **education** | 학력 | 석사이상(4), 학사졸업(3), 학사재학(2), 고등이하(1), 그외(0) |
 | **religion** | 종교 | 종교가 있다(1), 없다(0) |
-| **job** | 직업 | 연봉 기준으로 0~4로 분류 |
+| **job** | 직업 | 연봉 기준으로 0~3로 분류 |
 
 ---
 
@@ -274,7 +279,7 @@ Version      Git / GitHub
 - **smokes (흡연 여부)** : 흡연을 안한다(0), 조금한다(1), 자주 한다(5)
 - **niche_score (매칭 시장 내 배타성 지수)** : smokes + drinks + drugs + diet 매칭 마찰력 누적
   > **정의:** 탐색이론기반으로 유저의 생활 습관 데이터에 가중치를 부여하여 매칭 난이도를 수치화 한 지표 <br>
-  > **Note:** 음주 기준 0과 1의 지표는 성향 차이라 판단 하지만 %의 지표는 성향 차이가 아닐 것이라 판단해 niche_score 1의 합산보다 높게 설정
+  > **Note:** 음주 기준 0과 1의 지표는 성향 차이라 판단 하지만 5의 지표는 성향 차이가 아닐 것이라 판단해 각각의 1의 합산인 4보다 높게 설정
 
 ---
 
@@ -336,7 +341,7 @@ heatmap
 | body_type_slim         | 마른 체형 여부                | bool       |
 | smokes                 | 흡연자 여부                   | bool      |
 | drinks                 | 과음 여부(0, 1 ,5)           | int64      |
-| job_score              | 연봉기준  0~4                | float64    |
+| job_score              | 연봉기준  0~3                | float64    |
 | religion_religion      | 종교 여부                    | bool       |
 | status_encoding        | 연애 상태 인코딩값            | int64      |
 | age_group              | 연령대 그룹                  | int64      |
@@ -360,7 +365,7 @@ heatmap
 | 모델명        | Accuracy | Recall | F1-Score |
 |--------------|----------|--------|----------|
 | Logistic     | 0.59     | 0.49   | 0.45     |
-| RandomForest | 0.69     | 0.27   | 0.37     |
+| RandomForest | 0.57     | 0.37   | 0.41     |
 | XGBoost      | 0.67     | 0.41   | 0.45     |
 | Light GBM    | 0.65     | 0.58   | 0.52     |
 | CatBoost     | 0.45     | 0.65   | 0.40     |
@@ -390,7 +395,7 @@ heatmap
 | 모델명        | Accuracy | Recall | F1-Score |
 |--------------|----------|--------|----------|
 | Logistic     | 0.58     | 0.55   | 0.57     |
-| RandomForest | 0.66     | 0.54   | 0.51     |
+| RandomForest | 0.60     | 0.48   | 0.48     |
 | XGBoost      | 0.58     | 0.75   | 0.55     |
 | Light GBM    | 0.60     | 0.72   | 0.54     |
 | CatBoost     | 0.55     | 0.70   | 0.45     |
@@ -426,12 +431,18 @@ heatmap
 > - **평가 지표**: 이탈 예측의 비즈니스 목적(이탈자를 최대한 포착)에 맞게 Recall을 주 지표로, ROC-AUC·F1을 보조 지표로 설정. Accuracy는 클래스 불균형 환경에서 신뢰도가 낮아 주 지표에서 제외.
 > - **모델 선정**: ROC-AUC 기준 전 모델이 0.56~0.62 수렴 → 프로필 기반 데이터의 구조적 한계로 판단, Recall 0.75를 기록한 XGBoost를 최종 모델로 선정
 
+실제 데이팅 앱 비즈니스 환경의 클래스 불균형 문제를 반영하여 **'이탈 잠재 고객을 최대한 놓치지 않는 것'**에 초점을 맞췄습니다. 이를 위해 **Recall(재현율) 최대화**를 핵심 지표로 설정하고 최적화를 진행한 결과, Recall **0.75**를 기록하며 우수한 탐지력을 보여준 **XGBoost**를 최종 모델로 선정하였습니다.
+
 ### 테스트 데이터 넣어서 결과 도출
 
 <div>
-  <img src="./data/img/final_test.png" width="50%">
+  <img src="./data/img/final_test.png" width="60%">
 </div>
 
+<div>
+ <img width="2734" height="1466" alt="test_img_low" src="https://github.com/user-attachments/assets/687ba366-fd4a-4bb6-9ec3-3a8a5a3ac0fc" width ="60%"/>
+
+</div>
 ### 🔍 한계점
 
 * **이탈 레이블 정의의 모호성**
@@ -482,9 +493,9 @@ heatmap
     <tr>
       <td style="text-align: center;"><strong>고아라</strong></td>
       <td>
-  <strong>[Keep]</strong> 데이터 전처리 설계와 문서화 작업에서 팀에 기여할 수 있었다.<br>
+  <strong>[Keep]</strong> 깃허브와 README 초기세팅 및 틀, 파이프라인 구성 등 문서화 작업에서 팀에 기여할 수 있었다.<br>
   <strong>[Problem]</strong> ML/DL 모델의 전체적인 흐름과 구조에 대한 학습이 더 필요하다고 느꼈다.<br>
-  <strong>[Try]</strong> SMOTE 적용 후 XGBoost/LightGBM의 Recall이 0에 가까워지는 문제를 직접 발견하고 원인을 분석해 해결하면서, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다. 다음엔 ML/DL 전체 파이프라인을 처음부터 직접 구현해보는 학습을 진행할 것이다.
+  <strong>[Try]</strong> SMOTE 적용 후 XGBoost/LightGBM의 Recall이 0에 가까워지는 문제를 직접 발견하고 원인을 분석해 해결하면서, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다. ML과 DL의 전반적인 파이프라인과 코드활용에 대한 좀 더 깊은 이해와 학습이 필요할 것 같다. 
 </td>
     </tr>
     <tr>
@@ -503,7 +514,7 @@ heatmap
     </tr>
     <tr>
       <td style="text-align: center;"><strong>최현진</strong></td>
-      <td></td>
+      <td>이번 프로젝트를 통해 실제 사용자 데이터를 기반으로 이탈률을 예측해볼 수 있어 의미 있었습니다. 하이퍼파라미터와 threshold를 조정하며 성능 개선을 시도했지만, 데이터와 모델의 한계로 기대만큼의 향상은 이루지 못했습니다. 이를 통해 모델 튜닝뿐 아니라 데이터 전처리와 변수 설계가 성능에 큰 영향을 준다는 점을 배울 수 있었습니다.</td>
     </tr>
   </tbody>
 </table>
@@ -549,4 +560,3 @@ heatmap
 
 
 ```
-
