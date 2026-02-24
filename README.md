@@ -19,11 +19,11 @@
   </colgroup>
   <tbody>
     <tr>
-      <td style="text-align: center;"><img src="" alt="고아라"></td>
-      <td style="text-align: center;"><img src="" alt="권민제"></td>
-      <td style="text-align: center;"><img src="" alt="김규호"></td>
-      <td style="text-align: center;"><img src="" alt="김정현"></td>
-      <td style="text-align: center;"><img src="" alt="최현진"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/ara.png" alt="고아라" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/minje.png" alt="권민제" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/kyuho.png" alt="김규호" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/kjh.png" alt="김정현" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/hyunjin.png" alt="최현진" width="120"></td>
     </tr>
     <tr style="font-weight: bold;">
       <td style="text-align: center;">고아라</td>
