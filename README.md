@@ -7,7 +7,7 @@
 ---
 
 ## 1. 2팀 소개 - 
-- **팀명**: SKN24-2nd-2Team (Cupid Rescue)
+- **팀명**: 천생연분 (churn 生緣分)
 - **멤버**:
 <table>
   <colgroup>
