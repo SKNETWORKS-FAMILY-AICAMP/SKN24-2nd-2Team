@@ -19,11 +19,11 @@
   </colgroup>
   <tbody>
     <tr>
-      <td style="text-align: center;"><img src="./data/img/ara.png" alt="고아라" width="120"></td>
-      <td style="text-align: center;"><img src="./data/img/minje.png" alt="권민제" width="120"></td>
-      <td style="text-align: center;"><img src="./data/img/kyuho.png" alt="김규호" width="120"></td>
-      <td style="text-align: center;"><img src="./data/img/kjh.png" alt="김정현" width="120"></td>
-      <td style="text-align: center;"><img src="./data/img/hyunjin.png" alt="최현진" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/ara.png" alt="고아라" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/minje.png" alt="권민제" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/kyuho.png" alt="김규호" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/kjh.png" alt="김정현" width="120"></td>
+      <td style="text-align: center;"><img src="./assets/images/team/hyunjin.png" alt="최현진" width="120"></td>
     </tr>
     <tr style="font-weight: bold;">
       <td style="text-align: center;">고아라</td>
@@ -81,20 +81,22 @@
 
 ![글로벌 데이팅앱 시장 트렌드](./data/img/market_trend_chart.png)
 
-> **차트 읽는 법**
-> - ① 시장 규모는 10년간 **5.7배 성장** ($1.69B → $9.65B) — 그러나 2021년 이후 성장세 뚜렷하게 둔화
-> - ② 이용자 수는 꾸준히 증가했지만, ③ **리텐션율(복귀율)은 매년 하락** — 이용자는 늘어도 앱에 머무르지 않음
-> - ④ 다운로드는 2019년 역대 최고(287M) 이후 **지속 감소** — 신규 유입이 줄고 있음
-> - ⑤ 앱별 30일 리텐션: **Bumble 11%, Tinder 7.8%** — 업계 전체 평균(6%) 대비 여전히 높은 수준
-> - ⑥ Tinder 유료 구독자는 2022년 고점(10.8M) 이후 **첫 역성장** → 수익화 위기의 신호
+> **차트 읽는 법 (각 지표별 원본 데이터 출처 명시)**
+> - ① **시장 규모** ($1.69B → $9.65B, 5.7배 성장) — 원본: [Business of Apps, Dating App Revenue and Usage Statistics (2026)](https://www.businessofapps.com/data/dating-app-market/)
+> - ② **글로벌 이용자 수** (꾸준히 증가) — 원본: [Statista / Priori Data, Tinder Statistics (2024)](https://prioridata.com/data/tinder-statistics/)
+> - ③ **리텐션율 연도별 추이** (Day-1/7/30 매년 하락) — 원본: [Adjust, Valentine's Day App Trends Report (2025)](https://www.adjust.com/blog/valentines-day-app-trends-2025/)
+> - ④ **앱별 30일 리텐션** (Bumble 11%, Tinder 7.8%) — 원본: [Similarweb, Hinge vs Bumble Dating App Retention (2023)](https://www.similarweb.com/blog/insights/hinge-bumble-dating-retention/)
+> - ⑤ **Tinder 유료 구독자 연도별** (2022년 고점 10.8M 이후 역성장) — 원본: [DemandSage, Tinder Statistics (2026)](https://www.demandsage.com/tinder-statistics/)
 
-| 출처 | 데이터 |
-|---|---|
-| [Business of Apps (2026)](https://www.businessofapps.com/data/dating-app-market/) | 전 세계 시장 규모 연도별 |
-| [Statista / Priori Data](https://prioridata.com/data/tinder-statistics/) | 글로벌 이용자 수 |
-| [Adjust Valentine's Day Report (2025)](https://www.adjust.com/blog/valentines-day-app-trends-2025/) | Day-1/7/30 리텐션율 연도별 추이 |
-| [Similarweb (2023)](https://www.similarweb.com/blog/insights/hinge-bumble-dating-retention/) | 앱별 30일 리텐션 비교 |
-| [DemandSage Tinder Statistics (2026)](https://www.demandsage.com/tinder-statistics/) | Tinder 유료 구독자 연도별 |
+> ⚠️ **차트 작성 방법**: 위 5개 원본 출처에서 수집한 수치를 바탕으로 본 프로젝트에서 직접 시각화한 그래프이며, 원본 이미지를 그대로 사용한 것이 아님.
+
+| 차트 항목 | 수치 | 원본 출처 | 링크 |
+|---|---|---|---|
+| 전 세계 시장 규모 (2015~2024) | $1.69B → $9.65B | Business of Apps (2026) | [바로가기](https://www.businessofapps.com/data/dating-app-market/) |
+| 글로벌 이용자 수 | 연도별 추이 | Statista / Priori Data (2024) | [바로가기](https://prioridata.com/data/tinder-statistics/) |
+| Day-1/7/30 리텐션율 | 연도별 하락 추이 | Adjust Valentine's Day Report (2025) | [바로가기](https://www.adjust.com/blog/valentines-day-app-trends-2025/) |
+| 앱별 30일 리텐션 비교 | Bumble 11%, Tinder 7.8% | Similarweb (2023) | [바로가기](https://www.similarweb.com/blog/insights/hinge-bumble-dating-retention/) |
+| Tinder 유료 구독자 수 | 2022년 고점 10.8M 이후 역성장 | DemandSage (2026) | [바로가기](https://www.demandsage.com/tinder-statistics/) |
 
 --- 
 
@@ -110,7 +112,7 @@
 | 국내 로맨스 스캠 피해액 (2023) | **55억 1,200만원** — 2020년 대비 15배 급증 | 아시아경제, 2024.05.23 |
 
 
-![데이팅앱 시장 현황 — 뉴스 데이터 기반](./data/img/background_charts_v3.png)
+![데이팅앱 시장 현황 — 뉴스 데이터 기반](./assets/background_charts_v3 (1).png)
 
 
 > 📰 **뉴스 출처**  
@@ -146,12 +148,21 @@
 | 5 | 고대신문 (2024.06.03) | 틀린 만남은 없다, 문화로 자리 잡은 데이팅 앱 | 📰 대학신문 — 국내 2030 이용 현황·진정성 인식 설문 | [바로가기](https://www.kunews.ac.kr/news/articleView.html?idxno=42496) |
 
 
+
+
 ### **프로젝트 목표**: 이진 분류 모델을 통해 이탈 고위험군 유저를 식별
 
 1. OkCupid 프로필 데이터를 분석하여 이탈 관련 패턴을 탐색.
-2. ML(LR/RF/XGB/LGBM/CatBoost)을 학습·비교.
+2. ML(LR/DT/RF/XGB/LGBM/CatBoost)을 학습·비교.
 3. 클래스 불균형 환경에서 **Recall 최대화**를 핵심 지표로 모델 개선.
 4. 본 파이프라인을 다른 구독형 서비스에 적용 가능한 형태로 구축.
+
+> **📌 Recall을 핵심 지표로 선택한 이유**
+> 이탈 예측의 비즈니스 목적은 **이탈 가능성이 있는 유저를 사전에 최대한 많이 포착**하여 선제적으로 개입(프로모션, 알림 등)하는 것임.
+> - **False Negative(실제 이탈자를 잔류로 잘못 예측)의 비용 > False Positive(잔류자를 이탈로 잘못 예측)의 비용**
+> - 이탈자를 놓치면 고객을 완전히 잃지만, 잔류자에게 잘못 개입하는 비용(예: 불필요한 쿠폰 발송)은 상대적으로 낮음
+> - 따라서 **Precision을 일부 희생하더라도 Recall을 높이는 방향**이 이탈 예측 비즈니스에 적합
+> - 단, Recall만 높이면 모든 유저를 이탈로 예측해도 높은 수치가 나오므로, **ROC-AUC와 F1을 보조 지표로 함께 활용**하여 모델의 실질적 판별력 검증
 
 ### 데이터셋 기본 정보
 
@@ -162,6 +173,8 @@
 - 출처: - [OkCupid Profiles](https://github.com/rudeboybert/JSE_OkCupid)
 - 규모: 약 59,946건 (거의 60,000명)
 - 컬럼 개수: 31개
+- 수집 지역: 샌프란시스코 (San Francisco)
+- 수집 시기: 2012년 6월
 - 데이터 타입: 
   - int64 → 2개 (age, income)
   - float64 → 1개 (height)
@@ -220,7 +233,7 @@ Version      Git / GitHub
 
 ## 4. WBS (Work Breakdown Structure)
 <div>
-  <img src="./data/img/WBS.png" width="100%">
+  <img src="./data/img/WBS.png" width="50%">
 </div>
 
 ## 5. 데이터 전처리 결과서 (EDA)
@@ -231,10 +244,10 @@ Version      Git / GitHub
 
 ### 결측치 이상치
 <div>
-  <img src="./data/img/descrivbe.png" width="50%"><br>
-  <img src="./data/img/outlier_age.png" width="60%"> <br>
-  <img src="./data/img/outlier_height.png" width="60%"> <br>
-  <img src="./data/img/object_col.png" width="60%">
+  <img src="./data/img/descrivbe.png" width="30%"><br>
+  <img src="./data/img/outlier_age.png" width="40%"> <br>
+  <img src="./data/img/outlier_height.png" width="40%"> <br>
+  <img src="./data/img/object_col.png" width="40%">
   
 </div>
 
@@ -250,7 +263,7 @@ Version      Git / GitHub
 | **body_type** | 체형 | 마름, 보통, 건강, 통통 |
 | **education** | 학력 | 석사이상(4), 학사졸업(3), 학사재학(2), 고등이하(1), 그외(0) |
 | **religion** | 종교 | 종교가 있다(1), 없다(0) |
-| **job** | 직업 | 연봉 기준으로 0~3로 분류 |
+| **job** | 직업 | 연봉 기준으로 0~4로 분류 |
 
 ---
 
@@ -261,7 +274,7 @@ Version      Git / GitHub
 - **smokes (흡연 여부)** : 흡연을 안한다(0), 조금한다(1), 자주 한다(5)
 - **niche_score (매칭 시장 내 배타성 지수)** : smokes + drinks + drugs + diet 매칭 마찰력 누적
   > **정의:** 탐색이론기반으로 유저의 생활 습관 데이터에 가중치를 부여하여 매칭 난이도를 수치화 한 지표 <br>
-  > **Note:** 음주 기준 0과 1의 지표는 성향 차이라 판단 하지만 5의 지표는 성향 차이가 아닐 것이라 판단해 각각의 1의 합산인 4보다 높게 설정
+  > **Note:** 음주 기준 0과 1의 지표는 성향 차이라 판단 하지만 %의 지표는 성향 차이가 아닐 것이라 판단해 niche_score 1의 합산보다 높게 설정
 
 ---
 
@@ -275,7 +288,15 @@ Version      Git / GitHub
 
 ###  Target Variable (예측 목표)
 - **churn (이탈)** : 이탈(1), 잔류(0)
-  >**Note:** 앱을 마지막으로 사용한지 14일이 넘을시 이탈자라고 판단 
+
+> **📌 이탈 정의 및 레이블 기준**
+> - 본 데이터셋의 `last_online` 컬럼을 기준으로, **기준일(데이터 수집일)로부터 180일(약 6개월) 이상 미접속한 유저를 이탈(1)로 정의**
+> - 기준일: 데이터셋 내 `last_online` 최댓값 기준으로 설정
+>
+> **⚠️ 이탈 정의의 한계 (피드백 반영)**
+> 1. **'좋은 이탈' 미구분**: `last_online` 기반 정의는 매칭 성공 후 앱을 떠난 유저(긍정적 이탈)와 단순 무관심으로 떠난 유저(부정적 이탈)를 구분할 수 없음. 두 유형이 모두 이탈(1)로 레이블링되어 모델 학습 시 노이즈로 작용할 수 있음.
+> 2. **휴면 고객 미구분**: 장기간 미접속이더라도 향후 재가입할 수 있는 휴면 고객과 완전 이탈 고객을 구분하지 못함. 특히 가입 기간이 짧은 유저의 경우, 단순 미접속과 실질적 이탈의 경계가 모호함.
+> 3. **행동 데이터 부재**: OkCupid 데이터셋은 프로필 정보 중심으로, 접속 빈도·매칭 횟수 등 실제 이탈 원인과 직결되는 행동 로그 데이터가 없어 이탈 예측 자체의 구조적 한계가 존재함. 
 
 ### EDA
 
@@ -315,7 +336,7 @@ heatmap
 | body_type_slim         | 마른 체형 여부                | bool       |
 | smokes                 | 흡연자 여부                   | bool      |
 | drinks                 | 과음 여부(0, 1 ,5)           | int64      |
-| job_score              | 연봉기준  0~3                | float64    |
+| job_score              | 연봉기준  0~4                | float64    |
 | religion_religion      | 종교 여부                    | bool       |
 | status_encoding        | 연애 상태 인코딩값            | int64      |
 | age_group              | 연령대 그룹                  | int64      |
@@ -339,7 +360,7 @@ heatmap
 | 모델명        | Accuracy | Recall | F1-Score |
 |--------------|----------|--------|----------|
 | Logistic     | 0.59     | 0.49   | 0.45     |
-| RandomForest | 0.57     | 0.37   | 0.41     |
+| RandomForest | 0.69     | 0.27   | 0.37     |
 | XGBoost      | 0.67     | 0.41   | 0.45     |
 | Light GBM    | 0.65     | 0.58   | 0.52     |
 | CatBoost     | 0.45     | 0.65   | 0.40     |
@@ -369,7 +390,7 @@ heatmap
 | 모델명        | Accuracy | Recall | F1-Score |
 |--------------|----------|--------|----------|
 | Logistic     | 0.58     | 0.55   | 0.57     |
-| RandomForest | 0.60     | 0.48   | 0.48     |
+| RandomForest | 0.66     | 0.54   | 0.51     |
 | XGBoost      | 0.58     | 0.75   | 0.55     |
 | Light GBM    | 0.60     | 0.72   | 0.54     |
 | CatBoost     | 0.55     | 0.70   | 0.45     |
@@ -397,35 +418,52 @@ heatmap
 
 ## 7. 결론
 
-실제 데이팅 앱 비즈니스 환경의 클래스 불균형 문제를 반영하여 **'이탈 잠재 고객을 최대한 놓치지 않는 것'**에 초점을 맞췄습니다. 이를 위해 **Recall(재현율) 최대화**를 핵심 지표로 설정하고 최적화를 진행한 결과, Recall **0.75**를 기록하며 우수한 탐지력을 보여준 **XGBoost**를 최종 모델로 선정하였습니다.
+본 프로젝트는 **이진 분류(Binary Classification)** 를 통해 이탈 고위험군 유저를 식별하는 것을 목적으로 하였으며, 이에 맞게 모델 학습과 평가를 수행하였습니다.
+
+> **📌 이진 분류 목적에 맞는 학습·평가 여부**
+> - **레이블**: `last_online` 기준 180일 이상 미접속 → 이탈(1) / 잔류(0) 로 이진 분류 레이블 생성
+> - **클래스 불균형 처리**: 이탈(1) 비율이 약 8%로 불균형하여, SMOTE(일부 모델) 및 class_weight/scale_pos_weight 적용으로 이탈 클래스 학습 강화
+> - **평가 지표**: 이탈 예측의 비즈니스 목적(이탈자를 최대한 포착)에 맞게 Recall을 주 지표로, ROC-AUC·F1을 보조 지표로 설정. Accuracy는 클래스 불균형 환경에서 신뢰도가 낮아 주 지표에서 제외.
+> - **모델 선정**: ROC-AUC 기준 전 모델이 0.56~0.62 수렴 → 프로필 기반 데이터의 구조적 한계로 판단, Recall 0.75를 기록한 XGBoost를 최종 모델로 선정
 
 ### 테스트 데이터 넣어서 결과 도출
 
 <div>
-  <img src="./data/img/final_test.png" width="60%">
+  <img src="./data/img/final_test.png" width="50%">
 </div>
 
-<div>
- <img width="2734" height="1466" alt="test_img_low" src="https://github.com/user-attachments/assets/687ba366-fd4a-4bb6-9ec3-3a8a5a3ac0fc" width ="60%"/>
-
-</div>
 ### 🔍 한계점
 
-* **미이탈 유저 분석 중 특이 사례 확인**
-    * 적절한 연령대와 안정적인 직업군을 보유한 우수 유저임에도 불구하고, 이탈 확률이 최상위권으로 나타나는 역설적인 데이터 존재.
-* **'좋은 이탈'의 미구분**
-    * 서비스 목적(매칭 성공 등)을 달성하여 떠나는 **'좋은 이탈'**이 일반 이탈과 혼재되어 있음.
-    * 현재 학습 데이터 내에서 이 두 유형이 구분되지 않아 모델의 전체적인 **변별력 저하** 발생.
+* **이탈 레이블 정의의 모호성**
+    * `last_online` 기준 180일 미접속을 이탈로 정의했으나, 이는 행동 의도를 반영하지 못함.
+    * 매칭 성공 후 자연스럽게 떠난 **'좋은 이탈'** 과 단순 무관심으로 인한 **'나쁜 이탈'** 이 동일하게 이탈(1)로 레이블링되어 모델 학습의 노이즈로 작용.
+    * 가입 기간이 짧은 유저의 경우, 미접속 기간만으로 이탈을 판단하기 어려우며 **휴면 고객과 완전 이탈 고객의 구분이 불가**.
+
+* **프로필 기반 데이터의 구조적 한계**
+    * 접속 빈도, 매칭 횟수, 대화 지속 시간 등 **이탈 원인과 직결되는 행동 로그 데이터가 없음**.
+    * 전 모델이 ROC-AUC 0.56~0.62 구간에서 수렴한 것은 모델의 문제가 아니라, **피처(데이터) 자체의 정보량 한계**로 해석.
+    * ROC-AUC 등 평가 지표는 절대적 기준이 아니며, 데이터 특성과 비즈니스 맥락에 따라 해석이 달라짐.
+
+* **이진 분류의 표현력 한계**
+    * 이탈(0/1) 이진 레이블은 이탈의 동기와 성격을 담지 못함.
+    * 동일한 '이탈'이라도 매칭 성공, 피로감, 비용 문제 등 원인이 다양하여 단순 이진 분류만으로는 실무 개입 전략 수립에 한계가 있음.
 
 ---
 
 ### 개선방안
 
+* **이탈 정의 정교화**
+    * 향후 행동 로그 데이터(접속 빈도, 매칭 수, 대화 지속 기간 등) 확보 시, 단순 미접속 기간이 아닌 **복합 행동 기반 이탈 정의**로 레이블 품질 향상 가능.
+    * 가입 기간별 이탈 기준을 차등 적용(예: 가입 1년 미만은 30일, 이상은 180일)하는 **세분화된 레이블링 전략** 도입 검토.
+
+* **'좋은 이탈' / '나쁜 이탈' 구분**
+    * 매칭 성공 여부 데이터가 있다면 이탈 유형을 분리하여 **목적 달성형 이탈을 별도 클래스**로 처리, 모델 노이즈 감소 가능.
+
 * **비지도 학습 기반의 이탈 동기 군집화**
-    * 향후 비지도 학습을 도입하여 단순히 이탈 여부(0, 1)만 맞추는 것을 넘어, **이탈의 성격(동기)에 따른 군집 분석** 수행.
+    * 비지도 학습을 도입하여 단순 이탈 여부(0, 1)를 넘어, **이탈 동기에 따른 군집 분석**으로 개입 전략을 차별화.
+
 * **분석의 다각화 및 범용성 확보**
-    * 이탈 패턴의 정교한 해석을 통해 데이팅 앱뿐만 아니라 채용, 교육 등 **목적 달성형 구독 서비스** 전반에 적용 가능한 예측 프레임워크 구축 가능.
-    * 서비스 유형에 따른 복합적인 이탈 패턴을 분석하는 **범용적 모델**로의 확장성 기대.
+    * 본 파이프라인(전처리 → 학습 → 평가)은 데이팅앱 외에도 채용, 교육, 구독형 서비스 전반에 적용 가능한 **범용 이탈 예측 프레임워크**로 확장 가능.
 
 ## 8. 한 줄 회고
 
@@ -444,9 +482,9 @@ heatmap
     <tr>
       <td style="text-align: center;"><strong>고아라</strong></td>
       <td>
-  <strong>[Keep]</strong> 깃허브와 README 초기세팅 및 틀, 파이프라인 구성 등 문서화 작업에서 팀에 기여할 수 있었다.<br>
+  <strong>[Keep]</strong> 데이터 전처리 설계와 문서화 작업에서 팀에 기여할 수 있었다.<br>
   <strong>[Problem]</strong> ML/DL 모델의 전체적인 흐름과 구조에 대한 학습이 더 필요하다고 느꼈다.<br>
-  <strong>[Try]</strong> SMOTE 적용 후 XGBoost/LightGBM의 Recall이 0에 가까워지는 문제를 직접 발견하고 원인을 분석해 해결하면서, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다. ML과 DL의 전반적인 파이프라인과 코드활용에 대한 좀 더 깊은 이해와 학습이 필요할 것 같다. 
+  <strong>[Try]</strong> SMOTE 적용 후 XGBoost/LightGBM의 Recall이 0에 가까워지는 문제를 직접 발견하고 원인을 분석해 해결하면서, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다. 다음엔 ML/DL 전체 파이프라인을 처음부터 직접 구현해보는 학습을 진행할 것이다.
 </td>
     </tr>
     <tr>
@@ -465,7 +503,7 @@ heatmap
     </tr>
     <tr>
       <td style="text-align: center;"><strong>최현진</strong></td>
-      <td>이번 프로젝트를 통해 실제 사용자 데이터를 기반으로 이탈률을 예측해볼 수 있어 의미 있었습니다. 하이퍼파라미터와 threshold를 조정하며 성능 개선을 시도했지만, 데이터와 모델의 한계로 기대만큼의 향상은 이루지 못했습니다. 이를 통해 모델 튜닝뿐 아니라 데이터 전처리와 변수 설계가 성능에 큰 영향을 준다는 점을 배울 수 있었습니다.</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -511,3 +549,4 @@ heatmap
 
 
 ```
+
