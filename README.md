@@ -248,6 +248,7 @@ Version      Git / GitHub
 - **drugs (약물 사용)** : 안한다(0), 가끔한다(1), 자주한다(5)
 - **smokes (흡연 여부)** : 흡연을 안한다(0), 조금한다(1), 자주 한다(5)
 - **niche_score (매칭 시장 내 배타성 지수)** : smokes + drinks + drugs + diet 매칭 마찰력 누적
+  > **정의:** 탐색이론기반으로 유저의 생활 습관 데이터에 가중치를 부여하여 매칭 난이도를 수치화 한 지표
   > **Note:** 음주 기준 0과 1의 지표는 성향차이라 판단 하지만 %의 지표는 성향차이가 아닐것이라 판단해 niche_score 1의 합산보다 높게 설정
 
 ---
@@ -267,12 +268,24 @@ Version      Git / GitHub
 ### EDA
 
 
-(그래프 삽입)
-이탈 vs 잔류인원
 
+이탈 vs 잔류인원
+<div>
+  <img src="./data/img/eda_churn.png" width="50%">
+</div>
+
+
+essay_answered_count별 이탈률
+<div>
+  <img src="./data/img/eda_eac.png" width="50%">
+</div>
+
+
+heatmap
 <div>
   <img src="./data/img/heatmap.png" width="50%">
 </div>
+
 
 
 ### 최종 데이터 구조
@@ -370,19 +383,31 @@ Version      Git / GitHub
   <img src="./data/img/xgb_pr.png" width="50%">
 </div>
 
-
-### SELF 문제 제기
-F1-Score랑 Recall 값이 낮은데 왜 이탈율이 검증이 된다는거지?
-(논문자료)(논문자료)
--> 소셜네트워크 앱에서의 이탈율은 F1-Score 값이 0.6 값이면 잘나오는 것이다
-
-(조정해서 작성할 것)
-
 ## 7. 결론
 
 ### 테스트 데이터 넣어서 결과 도출
 
+<div>
+  <img src="./data/img/final_test.png" width="50%">
+</div>
 
+### 🔍 한계점
+
+* **미이탈 유저 분석 중 특이 사례 확인**
+    * 적절한 연령대와 안정적인 직업군을 보유한 우수 유저임에도 불구하고, 이탈 확률이 최상위권으로 나타나는 역설적인 데이터 존재.
+* **'좋은 이탈'의 미구분**
+    * 서비스 목적(매칭 성공 등)을 달성하여 떠나는 **'좋은 이탈'**이 일반 이탈과 혼재되어 있음.
+    * 현재 학습 데이터 내에서 이 두 유형이 구분되지 않아 모델의 전체적인 **변별력 저하** 발생.
+
+---
+
+### 개선방안
+
+* **비지도 학습 기반의 이탈 동기 군집화**
+    * 향후 비지도 학습을 도입하여 단순히 이탈 여부(0, 1)만 맞추는 것을 넘어, **이탈의 성격(동기)에 따른 군집 분석** 수행.
+* **분석의 다각화 및 범용성 확보**
+    * 이탈 패턴의 정교한 해석을 통해 데이팅 앱뿐만 아니라 채용, 교육 등 **목적 달성형 구독 서비스** 전반에 적용 가능한 예측 프레임워크 구축 가능.
+    * 서비스 유형에 따른 복합적인 이탈 패턴을 분석하는 **범용적 모델**로의 확장성 기대.
 
 ## 8. 한 줄 회고
 
@@ -422,3 +447,45 @@ F1-Score랑 Recall 값이 낮은데 왜 이탈율이 검증이 된다는거지?
     </tr>
   </tbody>
 </table>
+
+---
+
+## 📁 프로젝트 폴더 구조
+---
+```
+
+📁 SKN24-2ND-2Team/
+├── 📁 data/
+|   ├──📁 img/               ← README의 사용된 사진
+│   ├── Original data.csv     ← Kaggle 원본 데이터 CSV (gitignore 처리)
+│   └── Original data_process ← 전처리 완료데이터 CSV (gitignore 처리)
+│
+├── 📁 docs/
+│   ├── 기획서.md          ← 프로젝트 기획 문서
+│   ├── EDA_결과.md        ← 데이터 분석 정리
+│   └── 회의록/            ← 팀 회의 기록
+│
+├── 📁 models/
+│   ├── saved/            ← 학습된 모델 파일 (gitignore 처리)
+│   └── results/          ← 모델별 성능 비교 결과 CSV나 이미지
+│
+├── 📁 notebooks/
+│   ├── 01_EDA.ipynb
+│   ├── 02_preprocessing.ipynb
+│   ├── 03_ML_models.ipynb
+│   └── 04_DL_models.ipynb
+│
+├── 📁 src/
+│   ├── preprocess.py     ← 전처리 함수 모듈
+│   ├── train.py          ← 학습 실행 스크립트
+│   ├── evaluate.py       ← 평가 지표 함수
+│   └── predict.py        ← 예측 실행 스크립트
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+
+
+
+
+```
