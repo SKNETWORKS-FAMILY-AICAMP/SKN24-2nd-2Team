@@ -173,21 +173,20 @@
 ---
 
 ### 데이터셋 기본 정보
-- 출처: Kaggle - OkCupid Profiles
+
+<div>
+  <img src="./data/img/df_info.png" width="40%">
+</div>
+
+- 출처: [OkCupid Profiles](https://github.com/rudeboybert/JSE_OkCupid)
 - 규모: 약 59,946건 (거의 60,000명)
+- 컬럼 개수: 31개
 - 수집 지역: 샌프란시스코 (San Francisco)
 - 수집 시기: 2012년 6월
 - 데이터 타입: 구조화된 프로필 정보 + 자유 텍스트 (에세이)
-
-행 개수: 59,946개
-
-컬럼 개수: 31개
-
-데이터 타입 구성
-
-- int64 → 2개 (age, income)
-- float64 → 1개 (height)
-- object → 28개 (대부분 범주형/텍스트)
+  - int64 → 2개 (age, income)
+  - float64 → 1개 (height)
+  - object → 28개 (대부분 범주형/텍스트)
 
 범주형 데이터 비중이 높은 프로필 설문 기반 데이터셋
 
@@ -247,6 +246,11 @@ Version      Git / GitHub
 ---
 
 ## 4. WBS (Work Breakdown Structure)
+
+<div>
+  <img src="./data/img/WBS.png" width="50%">
+</div>
+
 
 | 단계 | 작업 내용 | 담당 | 상태 |
 |---|---|---|---|
