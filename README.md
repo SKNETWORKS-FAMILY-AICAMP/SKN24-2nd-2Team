@@ -514,12 +514,6 @@ CatBoostClassifier(auto_class_weights='Balanced')
 
 ![ML 모델별 성능 비교](./assets/ml_compare.png)
 
-### 최종 하이퍼파라미터 (클릭해 코드 확인)
-| 모델 | 핵심 파라미터 | [코드 보기](notebooks/03MLmodels.ipynb) |
-|------|--------------|---------------------------------------|
-| **XGBoost** | `scale_pos_weight=11.55`<br>`early_stopping_rounds=50` | ![파라미터](assets/images/xgb_params.png) |
-| **LightGBM** | `class_weight='balanced'` | ![파라미터](assets/images/lgb_params.png) |
-| **CatBoost** ⭐ | `auto_class_weights='Balanced'` | ![파라미터](assets/images/cat_params.png) |
 
 
 ---
@@ -577,14 +571,7 @@ EarlyStopping: patience=20
 
 ![DL ANN Advanced 학습 곡선](./assets/dl_adv_train.png)
 
-### 비즈니스 영향
-| 모델 | Recall (FN ↓) | Precision | 비즈니스 가치 |
-|------|---------------|-----------|--------------|
-| **ANN Adv (thr=0.3)** | **0.927** (91% ↓) | 0.086 | Churn 91% 포착 → **재유치 ROI 10배** |
-| ANN Adv (thr=0.5) | 0.544 | **0.117** | 밸런스 운영 |
-| **CatBoost (ML 최고)** | 0.472 | 0.118 | Baseline 2배 ↑ |
 
-**추천**: **Prod 환경 thr=0.3** (이탈 방지 최우선)
 
 ---
 
@@ -720,7 +707,7 @@ EarlyStopping: patience=20
       <td style="text-align: center;"><strong>고아라</strong></td>
       <td>
   <strong>[Keep]</strong> 깃허브와 README 초기세팅 및 틀, 파이프라인 구성 등 문서화 작업에서 팀에 기여할 수 있었다.<br>
-  <strong>[Problem]</strong> ML/DL 모델의 전체적인 흐름과 구조에 대한 학습이 더 필요하다고 느꼈다.<br>
+  <strong>[Problem]</strong> ML/DL 모델의 전체적인 흐름과 구조에 대한 학습이 더 필요하다고 느꼈다. 또한 수행결과에 대해 Streamlit을 통해 데모페이지까지 배포가 되지 못한 점이 아쉬웠다.<br>
   <strong>[Try]</strong> SMOTE 적용 후 XGBoost/LightGBM의 Recall이 0에 가까워지는 문제를 직접 발견하고 원인을 분석해 해결하면서, 데이터와 모델의 특성을 함께 이해해야 한다는 것을 배웠다. ML과 DL의 전반적인 파이프라인과 코드활용에 대한 좀 더 깊은 이해와 학습이 필요할 것 같다. 
 </td>
     </tr>
