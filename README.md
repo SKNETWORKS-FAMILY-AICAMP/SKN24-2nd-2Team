@@ -19,11 +19,11 @@
   </colgroup>
   <tbody>
     <tr>
-      <td style="text-align: center;"><img src="./assets/images/team/ara.png" alt="고아라" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/minje.png" alt="권민제" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/kyuho.png" alt="김규호" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/kjh.png" alt="김정현" width="120"></td>
-      <td style="text-align: center;"><img src="./assets/images/team/hyunjin.png" alt="최현진" width="120"></td>
+      <td style="text-align: center;"><img src="/repo-name/assets/images/team/ara.png" alt="고아라" width="120"></td>
+      <td style="text-align: center;"><img src="/repo-name//assets/images/team/minje.png" alt="권민제" width="120"></td>
+      <td style="text-align: center;"><img src="/repo-name//assets/images/team/kyuho.png" alt="김규호" width="120"></td>
+      <td style="text-align: center;"><img src="/repo-name//assets/images/team/kjh.png" alt="김정현" width="120"></td>
+      <td style="text-align: center;"><img src="/repo-name//assets/images/team/hyunjin.png" alt="최현진" width="120"></td>
     </tr>
     <tr style="font-weight: bold;">
       <td style="text-align: center;">고아라</td>
@@ -514,6 +514,14 @@ CatBoostClassifier(auto_class_weights='Balanced')
 
 ![ML 모델별 성능 비교](./assets/ml_compare.png)
 
+### 최종 하이퍼파라미터 (클릭해 코드 확인)
+| 모델 | 핵심 파라미터 | [코드 보기](notebooks/03MLmodels.ipynb) |
+|------|--------------|---------------------------------------|
+| **XGBoost** | `scale_pos_weight=11.55`<br>`early_stopping_rounds=50` | ![파라미터](assets/images/xgb_params.png) |
+| **LightGBM** | `class_weight='balanced'` | ![파라미터](assets/images/lgb_params.png) |
+| **CatBoost** ⭐ | `auto_class_weights='Balanced'` | ![파라미터](assets/images/cat_params.png) |
+
+
 ---
 
 ### 6-2. 딥러닝 (DL) 모델 — PyTorch
@@ -568,6 +576,15 @@ EarlyStopping: patience=20
 ![DL ANN Basic 학습 곡선](./assets/dl_basic_train.png)
 
 ![DL ANN Advanced 학습 곡선](./assets/dl_adv_train.png)
+
+### 비즈니스 영향
+| 모델 | Recall (FN ↓) | Precision | 비즈니스 가치 |
+|------|---------------|-----------|--------------|
+| **ANN Adv (thr=0.3)** | **0.927** (91% ↓) | 0.086 | Churn 91% 포착 → **재유치 ROI 10배** |
+| ANN Adv (thr=0.5) | 0.544 | **0.117** | 밸런스 운영 |
+| **CatBoost (ML 최고)** | 0.472 | 0.118 | Baseline 2배 ↑ |
+
+**추천**: **Prod 환경 thr=0.3** (이탈 방지 최우선)
 
 ---
 
